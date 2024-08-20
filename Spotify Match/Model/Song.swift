@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-final class Song {
+final class Song: Identifiable {
     let name: String
     let artist: String
     let cover: String

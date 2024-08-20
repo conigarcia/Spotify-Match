@@ -14,6 +14,10 @@
 		CFA91DA22C74F1C300D1202B /* SongCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DA12C74F1C300D1202B /* SongCardView.swift */; };
 		CFA91DA42C74F4F800D1202B /* SongCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DA32C74F4F800D1202B /* SongCardViewModel.swift */; };
 		CFA91DA62C75055500D1202B /* ImageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DA52C75055500D1202B /* ImageColor.swift */; };
+		CFA91DAB2C750F0B00D1202B /* AppBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DAA2C750F0B00D1202B /* AppBackgroundView.swift */; };
+		CFA91DAD2C7513E000D1202B /* CardStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DAC2C7513E000D1202B /* CardStackView.swift */; };
+		CFA91DB02C75156100D1202B /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DAF2C75156100D1202B /* Song.swift */; };
+		CFA91DB32C75171D00D1202B /* CardStackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DB22C75171D00D1202B /* CardStackViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		CFA91DA12C74F1C300D1202B /* SongCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardView.swift; sourceTree = "<group>"; };
 		CFA91DA32C74F4F800D1202B /* SongCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardViewModel.swift; sourceTree = "<group>"; };
 		CFA91DA52C75055500D1202B /* ImageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageColor.swift; sourceTree = "<group>"; };
+		CFA91DAA2C750F0B00D1202B /* AppBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundView.swift; sourceTree = "<group>"; };
+		CFA91DAC2C7513E000D1202B /* CardStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackView.swift; sourceTree = "<group>"; };
+		CFA91DAF2C75156100D1202B /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		CFA91DB22C75171D00D1202B /* CardStackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStackViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */,
+				CFA91DAE2C75155600D1202B /* Model */,
 				CFA91DA82C7508CD00D1202B /* Views */,
 				CFA91DA92C7508D900D1202B /* Utilities */,
 				CFA91D972C74F0E600D1202B /* Assets.xcassets */,
@@ -87,7 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				CFA91D952C74F0E500D1202B /* ContentView.swift */,
+				CFA91DB12C75171000D1202B /* CardStackView */,
 				CFA91DA72C7508B200D1202B /* SongCardView */,
+				CFA91DAA2C750F0B00D1202B /* AppBackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,6 +109,23 @@
 				CFA91DA52C75055500D1202B /* ImageColor.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CFA91DAE2C75155600D1202B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFA91DAF2C75156100D1202B /* Song.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CFA91DB12C75171000D1202B /* CardStackView */ = {
+			isa = PBXGroup;
+			children = (
+				CFA91DAC2C7513E000D1202B /* CardStackView.swift */,
+				CFA91DB22C75171D00D1202B /* CardStackViewModel.swift */,
+			);
+			path = CardStackView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,9 +199,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFA91D962C74F0E500D1202B /* ContentView.swift in Sources */,
+				CFA91DAD2C7513E000D1202B /* CardStackView.swift in Sources */,
 				CFA91DA22C74F1C300D1202B /* SongCardView.swift in Sources */,
 				CFA91D942C74F0E500D1202B /* Spotify_MatchApp.swift in Sources */,
+				CFA91DB02C75156100D1202B /* Song.swift in Sources */,
+				CFA91DB32C75171D00D1202B /* CardStackViewModel.swift in Sources */,
 				CFA91DA62C75055500D1202B /* ImageColor.swift in Sources */,
+				CFA91DAB2C750F0B00D1202B /* AppBackgroundView.swift in Sources */,
 				CFA91DA42C74F4F800D1202B /* SongCardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
