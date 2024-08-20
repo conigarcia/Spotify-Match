@@ -11,7 +11,7 @@ import SwiftUI
 final class SongCardViewModel: ObservableObject {
     @Published var offset = CGSize.zero
     
-    func swipeSong(deckViewModel: CardStackViewModel) {
+    func swipeSong(deckViewModel: CardDeckViewModel) {
         switch self.offset.width {
         case (-500)...(-150):
             self.offset = .zero

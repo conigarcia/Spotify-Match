@@ -1,5 +1,5 @@
 //
-//  CardStackViewModel.swift
+//  CardDeckViewModel.swift
 //  Spotify Match
 //
 //  Created by coni garcia on 20/08/2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CardStackViewModel: ObservableObject {
+final class CardDeckViewModel: ObservableObject {
     @Published var nextSongIdx = 1
     // TODO: check for empty or single element songs array
     @Published var songs = songSamples[0...1]

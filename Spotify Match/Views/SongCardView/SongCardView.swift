@@ -11,7 +11,7 @@ struct SongCardView: View {
     let song: Song
 
     @StateObject private var viewModel = SongCardViewModel()
-    @ObservedObject var deckViewModel: CardStackViewModel
+    @ObservedObject var deckViewModel: CardDeckViewModel
     
     var body: some View {
         GroupBox {
@@ -49,7 +49,7 @@ struct SongCardView: View {
 }
 
 #Preview {
-    @StateObject var deckViewModel = CardStackViewModel()
+    @StateObject var deckViewModel = CardDeckViewModel()
     return SongCardView(
         song: Song(
             name: "BITTERSUITE",

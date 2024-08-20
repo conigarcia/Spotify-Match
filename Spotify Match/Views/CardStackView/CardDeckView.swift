@@ -1,5 +1,5 @@
 //
-//  CardStackView.swift
+//  CardDeckView.swift
 //  Spotify Match
 //
 //  Created by coni garcia on 20/08/2024.
@@ -8,8 +8,8 @@
 import Algorithms
 import SwiftUI
 
-struct CardStackView: View {
-    @StateObject var viewModel = CardStackViewModel()
+struct CardDeckView: View {
+    @StateObject var viewModel = CardDeckViewModel()
     
     var body: some View {
         ZStack {
@@ -23,5 +23,5 @@ struct CardStackView: View {
 }
 
 #Preview {
-    CardStackView()
+    CardDeckView()
 }
