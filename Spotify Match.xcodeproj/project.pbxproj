@@ -58,10 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */,
-				CFA91D952C74F0E500D1202B /* ContentView.swift */,
-				CFA91DA12C74F1C300D1202B /* SongCardView.swift */,
-				CFA91DA52C75055500D1202B /* ImageColor.swift */,
-				CFA91DA32C74F4F800D1202B /* SongCardViewModel.swift */,
+				CFA91DA82C7508CD00D1202B /* Views */,
+				CFA91DA92C7508D900D1202B /* Utilities */,
 				CFA91D972C74F0E600D1202B /* Assets.xcassets */,
 				CFA91D992C74F0E600D1202B /* Preview Content */,
 			);
@@ -74,6 +72,32 @@
 				CFA91D9A2C74F0E600D1202B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CFA91DA72C7508B200D1202B /* SongCardView */ = {
+			isa = PBXGroup;
+			children = (
+				CFA91DA12C74F1C300D1202B /* SongCardView.swift */,
+				CFA91DA32C74F4F800D1202B /* SongCardViewModel.swift */,
+			);
+			path = SongCardView;
+			sourceTree = "<group>";
+		};
+		CFA91DA82C7508CD00D1202B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CFA91D952C74F0E500D1202B /* ContentView.swift */,
+				CFA91DA72C7508B200D1202B /* SongCardView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CFA91DA92C7508D900D1202B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CFA91DA52C75055500D1202B /* ImageColor.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
