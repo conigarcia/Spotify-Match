@@ -8,27 +8,29 @@
 import SwiftUI
 
 struct SongCardView: View {
-    @StateObject private var viewModel = SongCardViewModel()
+    let song: Song
+
+    @StateObject private var viewModel = SongCardViewModel()    
     
     var body: some View {
         GroupBox {
             VStack(alignment: .leading) {
-                Image(viewModel.songCover)
+                Image(song.cover)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300)
                     .clipShape(.rect(cornerRadius: 10))
-                Text(viewModel.songName)
+                Text(song.name)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundStyle(.white)
-                Text(viewModel.songArtist)
+                Text(song.artist)
                     .font(.headline)
                     .foregroundStyle(.white)
             }
             .padding()
         }
-        .backgroundStyle(viewModel.songColor)
+        .backgroundStyle(song.color)
         .offset(viewModel.offset)
         .rotationEffect(.degrees(Double(viewModel.offset.width / 80)))
         .gesture(
@@ -42,12 +44,9 @@ struct SongCardView: View {
                     }
                 }
         )
-        .onAppear {
-            viewModel.getNextSong()
-        }
     }
 }
 
 #Preview {
-    SongCardView()
+    SongCardView(song: Song(name: "BITTERSUITE", artist: "Billie Eilish", cover: "bittersuite"))
 }
