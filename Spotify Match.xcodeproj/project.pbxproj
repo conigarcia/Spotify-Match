@@ -11,6 +11,9 @@
 		CFA91D962C74F0E500D1202B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91D952C74F0E500D1202B /* ContentView.swift */; };
 		CFA91D982C74F0E600D1202B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA91D972C74F0E600D1202B /* Assets.xcassets */; };
 		CFA91D9B2C74F0E600D1202B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA91D9A2C74F0E600D1202B /* Preview Assets.xcassets */; };
+		CFA91DA22C74F1C300D1202B /* SongCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DA12C74F1C300D1202B /* SongCardView.swift */; };
+		CFA91DA42C74F4F800D1202B /* SongCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DA32C74F4F800D1202B /* SongCardViewModel.swift */; };
+		CFA91DA62C75055500D1202B /* ImageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DA52C75055500D1202B /* ImageColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		CFA91D952C74F0E500D1202B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CFA91D972C74F0E600D1202B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFA91D9A2C74F0E600D1202B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CFA91DA12C74F1C300D1202B /* SongCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardView.swift; sourceTree = "<group>"; };
+		CFA91DA32C74F4F800D1202B /* SongCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardViewModel.swift; sourceTree = "<group>"; };
+		CFA91DA52C75055500D1202B /* ImageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 			children = (
 				CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */,
 				CFA91D952C74F0E500D1202B /* ContentView.swift */,
+				CFA91DA12C74F1C300D1202B /* SongCardView.swift */,
+				CFA91DA52C75055500D1202B /* ImageColor.swift */,
+				CFA91DA32C74F4F800D1202B /* SongCardViewModel.swift */,
 				CFA91D972C74F0E600D1202B /* Assets.xcassets */,
 				CFA91D992C74F0E600D1202B /* Preview Content */,
 			);
@@ -138,7 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFA91D962C74F0E500D1202B /* ContentView.swift in Sources */,
+				CFA91DA22C74F1C300D1202B /* SongCardView.swift in Sources */,
 				CFA91D942C74F0E500D1202B /* Spotify_MatchApp.swift in Sources */,
+				CFA91DA62C75055500D1202B /* ImageColor.swift in Sources */,
+				CFA91DA42C74F4F800D1202B /* SongCardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
