@@ -29,8 +29,21 @@ struct SongCardView: View {
             .padding()
         }
         .backgroundStyle(viewModel.songColor)
+        .offset(viewModel.offset)
+        .rotationEffect(.degrees(Double(viewModel.offset.width / 80)))
+        .gesture(
+            DragGesture()
+                .onChanged{ gesture in
+                    viewModel.offset = gesture.translation
+                }
+                .onEnded{ _ in
+                    withAnimation {
+                        viewModel.swipeSong()
+                    }
+                }
+        )
         .onAppear {
-            viewModel.nextSong()
+            viewModel.getNextSong()
         }
     }
 }
