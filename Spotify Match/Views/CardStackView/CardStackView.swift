@@ -5,6 +5,7 @@
 //  Created by coni garcia on 20/08/2024.
 //
 
+import Algorithms
 import SwiftUI
 
 struct CardStackView: View {
@@ -12,8 +13,10 @@ struct CardStackView: View {
     
     var body: some View {
         ZStack {
-            ForEach(viewModel.songs) { song in
-                SongCardView(song: song)
+            ForEach(viewModel.songs.reversed().indexed(), id: \.index) { (idx, song) in
+                SongCardView(song: song, deckViewModel: viewModel)
+                    .zIndex(Double(idx))
+                    .opacity(idx == 0 ? 0.0 : 1.0)
             }
         }
     }

@@ -10,7 +10,8 @@ import SwiftUI
 struct SongCardView: View {
     let song: Song
 
-    @StateObject private var viewModel = SongCardViewModel()    
+    @StateObject private var viewModel = SongCardViewModel()
+    @ObservedObject var deckViewModel: CardStackViewModel
     
     var body: some View {
         GroupBox {
@@ -39,14 +40,22 @@ struct SongCardView: View {
                     viewModel.offset = gesture.translation
                 }
                 .onEnded{ _ in
-                    withAnimation {
-                        viewModel.swipeSong()
-                    }
+//                    withAnimation {
+                        viewModel.swipeSong(deckViewModel: deckViewModel)
+//                    }
                 }
         )
     }
 }
 
 #Preview {
-    SongCardView(song: Song(name: "BITTERSUITE", artist: "Billie Eilish", cover: "bittersuite"))
+    @StateObject var deckViewModel = CardStackViewModel()
+    return SongCardView(
+        song: Song(
+            name: "BITTERSUITE",
+            artist: "Billie Eilish",
+            cover: "bittersuite"
+        ),
+        deckViewModel: deckViewModel
+    )
 }
