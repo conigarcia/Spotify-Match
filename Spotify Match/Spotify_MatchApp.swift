@@ -11,7 +11,7 @@ import SwiftUI
 struct Spotify_MatchApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

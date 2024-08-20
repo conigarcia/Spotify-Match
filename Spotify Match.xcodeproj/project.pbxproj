@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CFA91D942C74F0E500D1202B /* Spotify_MatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */; };
-		CFA91D962C74F0E500D1202B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91D952C74F0E500D1202B /* ContentView.swift */; };
+		CFA91D962C74F0E500D1202B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91D952C74F0E500D1202B /* MainView.swift */; };
 		CFA91D982C74F0E600D1202B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA91D972C74F0E600D1202B /* Assets.xcassets */; };
 		CFA91D9B2C74F0E600D1202B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA91D9A2C74F0E600D1202B /* Preview Assets.xcassets */; };
 		CFA91DA22C74F1C300D1202B /* SongCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DA12C74F1C300D1202B /* SongCardView.swift */; };
@@ -24,7 +24,7 @@
 /* Begin PBXFileReference section */
 		CFA91D902C74F0E500D1202B /* Spotify Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify_MatchApp.swift; sourceTree = "<group>"; };
-		CFA91D952C74F0E500D1202B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CFA91D952C74F0E500D1202B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CFA91D972C74F0E600D1202B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFA91D9A2C74F0E600D1202B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CFA91DA12C74F1C300D1202B /* SongCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardView.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		CFA91DA82C7508CD00D1202B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CFA91D952C74F0E500D1202B /* ContentView.swift */,
+				CFA91D952C74F0E500D1202B /* MainView.swift */,
 				CFA91DB12C75171000D1202B /* CardStackView */,
 				CFA91DA72C7508B200D1202B /* SongCardView */,
 				CFA91DAA2C750F0B00D1202B /* AppBackgroundView.swift */,
@@ -206,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFA91D962C74F0E500D1202B /* ContentView.swift in Sources */,
+				CFA91D962C74F0E500D1202B /* MainView.swift in Sources */,
 				CFA91DAD2C7513E000D1202B /* CardDeckView.swift in Sources */,
 				CFA91DA22C74F1C300D1202B /* SongCardView.swift in Sources */,
 				CFA91D942C74F0E500D1202B /* Spotify_MatchApp.swift in Sources */,
