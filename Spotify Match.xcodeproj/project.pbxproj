@@ -19,6 +19,7 @@
 		CFA91DB02C75156100D1202B /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DAF2C75156100D1202B /* Song.swift */; };
 		CFA91DB32C75171D00D1202B /* CardDeckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DB22C75171D00D1202B /* CardDeckViewModel.swift */; };
 		CFA91DB62C75401700D1202B /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = CFA91DB52C75401700D1202B /* Algorithms */; };
+		CFA91DBB2C764F0D00D1202B /* SwipeEffectIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DBA2C764F0D00D1202B /* SwipeEffectIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CFA91DAC2C7513E000D1202B /* CardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckView.swift; sourceTree = "<group>"; };
 		CFA91DAF2C75156100D1202B /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		CFA91DB22C75171D00D1202B /* CardDeckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckViewModel.swift; sourceTree = "<group>"; };
+		CFA91DBA2C764F0D00D1202B /* SwipeEffectIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeEffectIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		CFA91DA72C7508B200D1202B /* SongCardView */ = {
 			isa = PBXGroup;
 			children = (
+				CFA91DBA2C764F0D00D1202B /* SwipeEffectIcon.swift */,
 				CFA91DA12C74F1C300D1202B /* SongCardView.swift */,
 				CFA91DA32C74F4F800D1202B /* SongCardViewModel.swift */,
 			);
@@ -216,6 +219,7 @@
 			files = (
 				CFA91D962C74F0E500D1202B /* MainView.swift in Sources */,
 				CFA91DAD2C7513E000D1202B /* CardDeckView.swift in Sources */,
+				CFA91DBB2C764F0D00D1202B /* SwipeEffectIcon.swift in Sources */,
 				CFA91DA22C74F1C300D1202B /* SongCardView.swift in Sources */,
 				CFA91D942C74F0E500D1202B /* Spotify_MatchApp.swift in Sources */,
 				CFA91DB02C75156100D1202B /* Song.swift in Sources */,

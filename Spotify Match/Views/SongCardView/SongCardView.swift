@@ -18,37 +18,19 @@ struct SongCardView: View, Identifiable {
     var body: some View {
         ZStack {
             if viewModel.offset.width > 150 {
-                VStack {
-                    Image(systemName: "checkmark.circle")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                    Text("Add song")
-                        .fontWeight(.bold)
-                }
-                .foregroundStyle(Color(.green))
-                .offset(x: -70)
-                .transition(
-                    .asymmetric(
-                        insertion: .move(edge: .leading),
-                        removal: .identity
-                    )
+                SwipeEffectIcon(
+                    icon: "checkmark.circle",
+                    text: "Add song",
+                    color: .green,
+                    offset: -70
                 )
             }
             if viewModel.offset.width < -150 {
-                VStack {
-                    Image(systemName: "xmark.circle")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                    Text("Dismiss song")
-                        .fontWeight(.bold)
-                }
-                .foregroundStyle(Color(.red))
-                .offset(x: 70)
-                .transition(
-                    .asymmetric(
-                        insertion: .move(edge: .trailing),
-                        removal: .identity
-                    )
+                SwipeEffectIcon(
+                    icon: "xmark.circle",
+                    text: "Dismiss song",
+                    color: .red,
+                    offset: 70
                 )
             }
             GroupBox {
