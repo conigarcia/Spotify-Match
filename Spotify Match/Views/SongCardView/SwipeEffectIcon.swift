@@ -23,12 +23,6 @@ struct SwipeEffectIcon: View {
         }
         .foregroundStyle(color)
         .offset(x: offset)
-        .transition(
-            .asymmetric(
-                insertion: .move(edge: offset < 0 ? .leading : .trailing),
-                removal: .identity
-            )
-        )
     }
 }
 

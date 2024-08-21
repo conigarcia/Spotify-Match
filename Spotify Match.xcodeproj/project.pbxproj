@@ -12,7 +12,6 @@
 		CFA91D982C74F0E600D1202B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA91D972C74F0E600D1202B /* Assets.xcassets */; };
 		CFA91D9B2C74F0E600D1202B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA91D9A2C74F0E600D1202B /* Preview Assets.xcassets */; };
 		CFA91DA22C74F1C300D1202B /* SongCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DA12C74F1C300D1202B /* SongCardView.swift */; };
-		CFA91DA42C74F4F800D1202B /* SongCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DA32C74F4F800D1202B /* SongCardViewModel.swift */; };
 		CFA91DA62C75055500D1202B /* ImageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DA52C75055500D1202B /* ImageColor.swift */; };
 		CFA91DAB2C750F0B00D1202B /* AppBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DAA2C750F0B00D1202B /* AppBackgroundView.swift */; };
 		CFA91DAD2C7513E000D1202B /* CardDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DAC2C7513E000D1202B /* CardDeckView.swift */; };
@@ -29,7 +28,6 @@
 		CFA91D972C74F0E600D1202B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFA91D9A2C74F0E600D1202B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CFA91DA12C74F1C300D1202B /* SongCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardView.swift; sourceTree = "<group>"; };
-		CFA91DA32C74F4F800D1202B /* SongCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCardViewModel.swift; sourceTree = "<group>"; };
 		CFA91DA52C75055500D1202B /* ImageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageColor.swift; sourceTree = "<group>"; };
 		CFA91DAA2C750F0B00D1202B /* AppBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundView.swift; sourceTree = "<group>"; };
 		CFA91DAC2C7513E000D1202B /* CardDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckView.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 			children = (
 				CFA91DBA2C764F0D00D1202B /* SwipeEffectIcon.swift */,
 				CFA91DA12C74F1C300D1202B /* SongCardView.swift */,
-				CFA91DA32C74F4F800D1202B /* SongCardViewModel.swift */,
 			);
 			path = SongCardView;
 			sourceTree = "<group>";
@@ -226,7 +223,6 @@
 				CFA91DB32C75171D00D1202B /* CardDeckViewModel.swift in Sources */,
 				CFA91DA62C75055500D1202B /* ImageColor.swift in Sources */,
 				CFA91DAB2C750F0B00D1202B /* AppBackgroundView.swift in Sources */,
-				CFA91DA42C74F4F800D1202B /* SongCardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

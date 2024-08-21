@@ -10,6 +10,7 @@ import Foundation
 final class CardDeckViewModel: ObservableObject {
     @Published var nextSongIdx = 1
     @Published var deck = [SongCardView]()
+    @Published var topCardOffset = CGSize.zero
 
     init() {
         createDeck()
@@ -17,14 +18,14 @@ final class CardDeckViewModel: ObservableObject {
     
     func createDeck() {
         for idx in 0...1 {
-            deck.append(SongCardView(song: songSamples[idx], deckViewModel: self))
+            deck.append(SongCardView(song: songSamples[idx]))
         }
     }
     
     func nextCard() {
         nextSongIdx = (nextSongIdx + 1) % songSamples.count
         deck.removeFirst()
-        deck.append(SongCardView(song: songSamples[nextSongIdx], deckViewModel: self))
+        deck.append(SongCardView(song: songSamples[nextSongIdx]))
     }
     
     func isTopCard(card: SongCardView) -> Bool {
