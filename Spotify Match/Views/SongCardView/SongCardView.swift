@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct SongCardView: View {
+struct SongCardView: View, Identifiable {
+    let id = UUID()
+    
     let song: Song
     
     @StateObject private var viewModel = SongCardViewModel()
@@ -77,23 +79,25 @@ struct SongCardView: View {
                         }
                     }
                     .onEnded{ _ in
-//                    withAnimation {
-                        viewModel.swipeSong(deckViewModel: deckViewModel)
-//                    }
+                        withAnimation {
+                            viewModel.swipeSong(deckViewModel: deckViewModel)
+                        }
                     }
             )
         }
+        .transition(
+            .asymmetric(
+                insertion: .identity,
+                removal: .offset(
+                    x: viewModel.offset.width > 0 ? 500 : -500,
+                    y: viewModel.offset.height
+                )
+            )
+        )
     }
 }
 
 #Preview {
     @StateObject var deckViewModel = CardDeckViewModel()
-    return SongCardView(
-        song: Song(
-            name: "BITTERSUITE",
-            artist: "Billie Eilish",
-            cover: "bittersuite"
-        ),
-        deckViewModel: deckViewModel
-    )
+    return SongCardView(song: songSamples[0], deckViewModel: deckViewModel)
 }

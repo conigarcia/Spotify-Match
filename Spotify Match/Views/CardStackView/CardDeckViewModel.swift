@@ -9,13 +9,26 @@ import Foundation
 
 final class CardDeckViewModel: ObservableObject {
     @Published var nextSongIdx = 1
-    // TODO: check for empty or single element songs array
-    @Published var songs = songSamples[0...1]
+    @Published var deck = [SongCardView]()
+
+    init() {
+        createDeck()
+    }
     
-    func nextSong() {
+    func createDeck() {
+        for idx in 0...1 {
+            deck.append(SongCardView(song: songSamples[idx], deckViewModel: self))
+        }
+    }
+    
+    func nextCard() {
         nextSongIdx = (nextSongIdx + 1) % songSamples.count
-        songs.removeFirst()
-        songs.append(songSamples[nextSongIdx])
+        deck.removeFirst()
+        deck.append(SongCardView(song: songSamples[nextSongIdx], deckViewModel: self))
+    }
+    
+    func isTopCard(card: SongCardView) -> Bool {
+        return card.id == deck.first?.id
     }
 }
 

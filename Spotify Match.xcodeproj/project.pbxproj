@@ -100,7 +100,7 @@
 				CFA91D952C74F0E500D1202B /* MainView.swift */,
 				CFA91DB12C75171000D1202B /* CardStackView */,
 				CFA91DA72C7508B200D1202B /* SongCardView */,
-				CFA91DAA2C750F0B00D1202B /* AppBackgroundView.swift */,
+				CFA91DB92C764EC200D1202B /* AppBackgroundView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +128,14 @@
 				CFA91DB22C75171D00D1202B /* CardDeckViewModel.swift */,
 			);
 			path = CardStackView;
+			sourceTree = "<group>";
+		};
+		CFA91DB92C764EC200D1202B /* AppBackgroundView */ = {
+			isa = PBXGroup;
+			children = (
+				CFA91DAA2C750F0B00D1202B /* AppBackgroundView.swift */,
+			);
+			path = AppBackgroundView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

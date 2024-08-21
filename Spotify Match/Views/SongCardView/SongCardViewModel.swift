@@ -13,20 +13,14 @@ final class SongCardViewModel: ObservableObject {
     
     func moveSong(offset: CGSize) {
         self.offset = offset
-//        switch self.offset.width {
-//        case (-500)...(-150):
-//            
-//        }
     }
     
     func swipeSong(deckViewModel: CardDeckViewModel) {
         switch self.offset.width {
         case (-500)...(-150):
-            self.offset = .zero
-            deckViewModel.nextSong()
+            deckViewModel.nextCard()
         case 150...500:
-            self.offset = .zero
-            deckViewModel.nextSong()
+            deckViewModel.nextCard()
         default:
             self.offset = .zero
         }

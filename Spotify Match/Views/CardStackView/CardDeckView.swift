@@ -13,10 +13,10 @@ struct CardDeckView: View {
     
     var body: some View {
         ZStack {
-            ForEach(viewModel.songs.reversed().indexed(), id: \.index) { (idx, song) in
-                SongCardView(song: song, deckViewModel: viewModel)
-                    .zIndex(Double(idx))
-                    .opacity(idx == 0 ? 0.0 : 1.0)
+            ForEach(viewModel.deck.reversed()) { card in
+                card
+                    .opacity(viewModel.isTopCard(card: card) ? 1.0 : 0.0)
+                    .animation(.linear(duration: 0.05).delay(0.5), value: viewModel.isTopCard(card: card))
             }
         }
     }
