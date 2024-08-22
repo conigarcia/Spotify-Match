@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HeaderView: View {
+    @EnvironmentObject var spotifyController: SpotifyController
+
     let timer = Timer.publish(every: 9, on: .main, in: .common).autoconnect()
     @State var offset: CGFloat = -250
     
@@ -42,7 +44,9 @@ struct HeaderView: View {
                     .frame(width: 200, height: 40)
             }
             .onTapGesture {
-                print("tapped")
+                if !spotifyController.appRemote.isConnected {
+                    spotifyController.connect()
+                }
             }
             
             HStack(alignment: .center) {
