@@ -11,44 +11,41 @@ import SwiftUI
 struct CardDeckView: View {
     @StateObject var viewModel = CardDeckViewModel()
     
+    @GestureState var isDragging = false
+    
     var body: some View {
         ZStack {
+            if viewModel.topCardOffset.width > 150 {
+                SwipeEffectIcon(
+                    regularIcon: "checkmark.circle",
+                    specialIcon: "checkmark.circle.fill",
+                    isSpecial: !isDragging,
+                    text: "Add song",
+                    color: .green,
+                    offset: -70
+                )
+            }
+            if viewModel.topCardOffset.width < -150 {
+                SwipeEffectIcon(
+                    regularIcon: "xmark.circle",
+                    specialIcon: "xmark.circle.fill",
+                    isSpecial: !isDragging,
+                    text: "Dismiss song",
+                    color: .red,
+                    offset: 70
+                )
+            }
+            
             ForEach(viewModel.deck.reversed()) { card in
-                if viewModel.topCardOffset.width > 150 {
-                    SwipeEffectIcon(
-                        icon: "checkmark.circle",
-                        text: "Add song",
-                        color: .green,
-                        offset: -70
-                    )
-                    .transition(
-                        .asymmetric(
-                            insertion: .move(edge: .leading),
-                            removal: .identity
-                        )
-                    )
-                }
-                if viewModel.topCardOffset.width < -150 {
-                    SwipeEffectIcon(
-                        icon: "xmark.circle",
-                        text: "Dismiss song",
-                        color: .red,
-                        offset: 70
-                    )
-                    .transition(
-                        .asymmetric(
-                            insertion: .move(edge: .trailing),
-                            removal: .identity
-                        )
-                    )
-                }
-                
                 card
                     .offset(viewModel.isTopCard(card: card) ? viewModel.topCardOffset : .zero)
                     .opacity(viewModel.isTopCard(card: card) ? 1.0 : 0.0)
                     .rotationEffect(.degrees(viewModel.isTopCard(card: card) ? Double(viewModel.topCardOffset.width / 80) : 0))
                     .gesture(
                         DragGesture()
+                            .updating($isDragging) { _, state, _ in
+                                state = true
+                            }
                             .onChanged{ gesture in
                                 withAnimation {
                                     viewModel.topCardOffset = gesture.translation
@@ -59,10 +56,8 @@ struct CardDeckView: View {
                                     switch viewModel.topCardOffset.width {
                                     case (-500)...(-150):
                                         viewModel.nextCard()
-                                        viewModel.topCardOffset = .zero
                                     case 150...500:
                                         viewModel.nextCard()
-                                        viewModel.topCardOffset = .zero
                                     default:
                                         viewModel.topCardOffset = .zero
                                     }
@@ -78,7 +73,6 @@ struct CardDeckView: View {
                             )
                         )
                     )
-                    .animation(.linear(duration: 0.05).delay(0.5), value: viewModel.isTopCard(card: card))
             }
         }
     }

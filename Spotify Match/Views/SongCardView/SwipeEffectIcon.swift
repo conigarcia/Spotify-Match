@@ -8,27 +8,38 @@
 import SwiftUI
 
 struct SwipeEffectIcon: View {
-    let icon: String
+    let regularIcon: String
+    let specialIcon: String
+    var isSpecial: Bool
     let text: String
     let color: Color
     let offset: Double
 
     var body: some View {
         VStack {
-            Image(systemName: icon)
-                .resizable()
-                .frame(width: 100, height: 100)
+            Image(systemName: isSpecial ? specialIcon : regularIcon)
+                .font(.system(size: 100))
+                .symbolEffect(.bounce, value: isSpecial)
+                .contentTransition(.symbolEffect(.replace))
             Text(text)
                 .fontWeight(.bold)
         }
         .foregroundStyle(color)
         .offset(x: offset)
+        .transition(
+            .asymmetric(
+                insertion: .move(edge: offset > 0 ? .trailing : .leading),
+                removal: .identity
+            )
+        )
     }
 }
 
 #Preview("check") {
     SwipeEffectIcon(
-        icon: "checkmark.circle",
+        regularIcon: "checkmark.circle",
+        specialIcon: "checkmark.circle.fill",
+        isSpecial: false,
         text: "Add song",
         color: .green,
         offset: -70
@@ -37,7 +48,9 @@ struct SwipeEffectIcon: View {
 
 #Preview("cross") {
     SwipeEffectIcon(
-        icon: "xmark.circle",
+        regularIcon: "xmark.circle",
+        specialIcon: "xmark.circle.fill",
+        isSpecial: true,
         text: "Dismiss song",
         color: .red,
         offset: 70

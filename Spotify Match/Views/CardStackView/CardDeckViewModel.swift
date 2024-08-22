@@ -11,9 +11,11 @@ final class CardDeckViewModel: ObservableObject {
     @Published var nextSongIdx = 1
     @Published var deck = [SongCardView]()
     @Published var topCardOffset = CGSize.zero
+    private var topCard: SongCardView?
 
     init() {
         createDeck()
+        getTopCard()
     }
     
     func createDeck() {
@@ -22,14 +24,22 @@ final class CardDeckViewModel: ObservableObject {
         }
     }
     
+    func getTopCard() {
+        topCard = deck.first!
+    }
+    
+    func isTopCard(card: SongCardView) -> Bool {
+        return card.id == topCard!.id
+    }
+    
     func nextCard() {
         nextSongIdx = (nextSongIdx + 1) % songSamples.count
         deck.removeFirst()
         deck.append(SongCardView(song: songSamples[nextSongIdx]))
-    }
-    
-    func isTopCard(card: SongCardView) -> Bool {
-        return card.id == deck.first?.id
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.85, execute: {
+            self.topCardOffset = .zero
+            self.topCard = self.deck.first!
+        })
     }
 }
 
