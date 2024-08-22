@@ -10,8 +10,16 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         ZStack {
-//            AppBackgroundView()
-            CardDeckView()
+            AppBackgroundView()
+            VStack {
+                HeaderView()
+                Spacer()
+                CardDeckView()
+                Spacer()
+                Spacer()
+                    .frame(height: 40)
+                    .padding()
+            }
         }
     }
 }

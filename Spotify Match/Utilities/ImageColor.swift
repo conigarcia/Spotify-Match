@@ -1,8 +1,7 @@
 //
 //  ImageColor.swift
-//  Spotify Match
 //
-//  Created by coni garcia on 20/08/2024.
+//  https://www.hackingwithswift.com/example-code/media/how-to-read-the-average-color-of-a-uiimage-using-ciareaaverage
 //
 
 import Foundation

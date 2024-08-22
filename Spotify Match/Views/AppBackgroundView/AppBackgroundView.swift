@@ -11,7 +11,7 @@ struct AppBackgroundView: View {
     var body: some View {
         Rectangle()
             .ignoresSafeArea()
-            .foregroundStyle(Gradient(colors: [.black, .green]))
+            .foregroundStyle(Color(.background))
         
     }
 }
