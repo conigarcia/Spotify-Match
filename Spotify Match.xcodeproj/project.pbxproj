@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		CF884D912C77CD8100AB9163 /* SpotifyiOS in Frameworks */ = {isa = PBXBuildFile; productRef = CF884D902C77CD8100AB9163 /* SpotifyiOS */; };
 		CF884D972C77CF5900AB9163 /* SpotifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884D962C77CF5900AB9163 /* SpotifyController.swift */; };
+		CF884D992C792FBF00AB9163 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884D982C792FBF00AB9163 /* Playlist.swift */; };
+		CF884D9B2C79322400AB9163 /* APICalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884D9A2C79322400AB9163 /* APICalls.swift */; };
+		CF884D9D2C79368300AB9163 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884D9C2C79368300AB9163 /* NetworkError.swift */; };
 		CFA91D942C74F0E500D1202B /* Spotify_MatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */; };
 		CFA91D962C74F0E500D1202B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91D952C74F0E500D1202B /* MainView.swift */; };
 		CFA91D982C74F0E600D1202B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA91D972C74F0E600D1202B /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 		CF884D922C77CE7100AB9163 /* Spotify-Match-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Spotify-Match-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CF884D932C77CEEE00AB9163 /* Spotify Match-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spotify Match-Bridging-Header.h"; sourceTree = "<group>"; };
 		CF884D962C77CF5900AB9163 /* SpotifyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyController.swift; sourceTree = "<group>"; };
+		CF884D982C792FBF00AB9163 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		CF884D9A2C79322400AB9163 /* APICalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICalls.swift; sourceTree = "<group>"; };
+		CF884D9C2C79368300AB9163 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CFA91D902C74F0E500D1202B /* Spotify Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify_MatchApp.swift; sourceTree = "<group>"; };
 		CFA91D952C74F0E500D1202B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -64,6 +70,16 @@
 			path = HeaderView;
 			sourceTree = "<group>";
 		};
+		CF884D9E2C79483200AB9163 /* SpotifyConnection */ = {
+			isa = PBXGroup;
+			children = (
+				CF884D962C77CF5900AB9163 /* SpotifyController.swift */,
+				CF884D9A2C79322400AB9163 /* APICalls.swift */,
+				CF884D9C2C79368300AB9163 /* NetworkError.swift */,
+			);
+			path = SpotifyConnection;
+			sourceTree = "<group>";
+		};
 		CFA91D872C74F0E500D1202B = {
 			isa = PBXGroup;
 			children = (
@@ -84,12 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */,
-				CF884D962C77CF5900AB9163 /* SpotifyController.swift */,
+				CF884D9E2C79483200AB9163 /* SpotifyConnection */,
 				CFA91DAE2C75155600D1202B /* Model */,
 				CFA91DA82C7508CD00D1202B /* Views */,
 				CFA91DA92C7508D900D1202B /* Utilities */,
-				CFA91D972C74F0E600D1202B /* Assets.xcassets */,
 				CFA91D992C74F0E600D1202B /* Preview Content */,
+				CFA91D972C74F0E600D1202B /* Assets.xcassets */,
 				CF884D922C77CE7100AB9163 /* Spotify-Match-Info.plist */,
 				CF884D932C77CEEE00AB9163 /* Spotify Match-Bridging-Header.h */,
 			);
@@ -136,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				CFA91DAF2C75156100D1202B /* Song.swift */,
+				CF884D982C792FBF00AB9163 /* Playlist.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFA91D962C74F0E500D1202B /* MainView.swift in Sources */,
+				CF884D9D2C79368300AB9163 /* NetworkError.swift in Sources */,
 				CFA91DAD2C7513E000D1202B /* CardDeckView.swift in Sources */,
 				CFA91DBB2C764F0D00D1202B /* SwipeEffectIcon.swift in Sources */,
 				CFA91DA22C74F1C300D1202B /* SongCardView.swift in Sources */,
@@ -247,6 +265,8 @@
 				CFA91DB02C75156100D1202B /* Song.swift in Sources */,
 				CFA91DB32C75171D00D1202B /* CardDeckViewModel.swift in Sources */,
 				CFA91DA62C75055500D1202B /* ImageColor.swift in Sources */,
+				CF884D9B2C79322400AB9163 /* APICalls.swift in Sources */,
+				CF884D992C792FBF00AB9163 /* Playlist.swift in Sources */,
 				CFA91DAB2C750F0B00D1202B /* AppBackgroundView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
