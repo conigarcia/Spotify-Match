@@ -15,8 +15,6 @@ class SpotifyController: NSObject, ObservableObject {
     
     var accessToken: String? = nil
     
-    var playURI = ""
-    
     private var connectCancellable: AnyCancellable?
     
     private var disconnectCancellable: AnyCancellable?
@@ -83,12 +81,12 @@ extension SpotifyController: SPTAppRemoteDelegate {
     func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
         self.appRemote = appRemote
         self.appRemote.playerAPI?.delegate = self
-        self.appRemote.playerAPI?.subscribe(toPlayerState: { (result, error) in
-            if let error = error {
-                debugPrint(error.localizedDescription)
-            }
-            
-        })
+//        self.appRemote.playerAPI?.subscribe(toPlayerState: { (result, error) in
+//            if let error = error {
+//                debugPrint(error.localizedDescription)
+//            }
+//            
+//        })
     }
     
     func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
@@ -100,16 +98,16 @@ extension SpotifyController: SPTAppRemoteDelegate {
     }
 }
 
-//extension SpotifyController: SPTAppRemotePlayerStateDelegate {
-//    func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
-//        debugPrint("Track name: %@", playerState.track.name)
-//    }
-//
-//}
-
 extension SpotifyController: SPTAppRemotePlayerStateDelegate {
     func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
-        // noop
+        debugPrint("Track name: %@", playerState.track.name)
     }
-    
+
 }
+
+//extension SpotifyController: SPTAppRemotePlayerStateDelegate {
+//    func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
+//        // noop
+//    }
+//    
+//}
