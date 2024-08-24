@@ -15,7 +15,6 @@ func playlistsURLRequest(spotifyController: SpotifyController) -> URLRequest? {
     
     guard let url = components.url else { return nil }
     
-    
     var urlRequest = URLRequest(url: url)
     urlRequest.addValue("Bearer " + (spotifyController.accessToken ?? ""), forHTTPHeaderField: "Authorization")
     urlRequest.httpMethod = "GET"
@@ -37,6 +36,40 @@ func getPlaylists(spotifyController: SpotifyController) async throws -> Playlist
     do {
         let decoder = JSONDecoder()
         return try decoder.decode(PlaylistSet.self, from: data)
+    } catch {
+        throw NetworkError.invalidData
+    }
+}
+
+func playlistTracksURLRequest(spotifyController: SpotifyController, playlistId: String) -> URLRequest? {
+    var components = URLComponents()
+    components.scheme = "https"
+    components.host = "api.spotify.com"
+    components.path = "/v1/playlists/\(playlistId)/tracks"
+    
+    guard let url = components.url else { return nil }
+    
+    var urlRequest = URLRequest(url: url)
+    urlRequest.addValue("Bearer " + (spotifyController.accessToken ?? ""), forHTTPHeaderField: "Authorization")
+    urlRequest.httpMethod = "GET"
+    
+    return urlRequest
+}
+
+func getPlaylistTracks(spotifyController: SpotifyController, playlistId: String) async throws -> PlaylistTracks {
+    guard let urlRequest = playlistTracksURLRequest(spotifyController: spotifyController, playlistId: playlistId) else {
+        throw NetworkError.invalidURL
+    }
+
+    let (data, response) = try await URLSession.shared.data(for: urlRequest)
+    
+    guard let response = response as?  HTTPURLResponse, response.statusCode == 200 else {
+        throw NetworkError.invalidResponse
+    }
+    
+    do {
+        let decoder = JSONDecoder()
+        return try decoder.decode(PlaylistTracks.self, from: data)
     } catch {
         throw NetworkError.invalidData
     }

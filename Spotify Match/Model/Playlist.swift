@@ -8,28 +8,51 @@
 import Foundation
 
 struct PlaylistSet: Codable {
-    let limit: Int
-    let next: String?
-    let offset: Int
-    let previous: String?
-    let total: Int
+//    let limit: Int
+//    let next: String?
+//    let offset: Int
+//    let previous: String?
+//    let total: Int
     let items: [Playlist]
 }
 
 struct Playlist: Codable {
     let id: String
-    let images: [PlaylistImage]
+    let images: [SpotifyImage]
     let name: String
-    let tracks: Tracks?
 }
 
-struct PlaylistImage: Codable {
+struct SpotifyImage: Codable {
     let url: String
     let width: Int?
     let height: Int?
 }
 
-struct Tracks: Codable {
-    let href: String
-    let total: Int
+struct PlaylistTracks: Codable {
+//    let limit: Int
+//    let next: String?
+//    let offset: Int
+//    let previous: String?
+//    let total: Int
+    let items: [PlaylistTrack]
+}
+
+struct PlaylistTrack: Codable {
+    let track: Track
+}
+
+struct Track: Codable {
+    let name: String
+    let artists: [Artist]
+    let album: Album
+    let previewUrl: String?
+}
+
+struct Artist: Codable {
+    let name: String
+}
+
+struct Album: Codable {
+    let name: String
+    let images: [SpotifyImage]
 }
