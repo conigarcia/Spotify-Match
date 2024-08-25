@@ -10,9 +10,8 @@ import SwiftUI
 struct ConfigurationView: View {
     var body: some View {
         ZStack {
-            Rectangle()
+            Color(.background)
                 .ignoresSafeArea()
-                .foregroundStyle(Color(.background))
 
             VStack {
                 Text("Configuration")

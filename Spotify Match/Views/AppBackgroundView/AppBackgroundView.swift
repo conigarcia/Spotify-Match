@@ -9,10 +9,8 @@ import SwiftUI
 
 struct AppBackgroundView: View {
     var body: some View {
-        Rectangle()
-            .ignoresSafeArea()
-            .foregroundStyle(Color(.background))
-        
+        Color(.background)
+            .ignoresSafeArea()        
     }
 }
 

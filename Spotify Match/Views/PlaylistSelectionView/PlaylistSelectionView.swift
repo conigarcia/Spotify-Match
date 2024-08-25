@@ -13,9 +13,8 @@ struct PlaylistSelectionView: View {
 
     var body: some View {
         ZStack {
-            Rectangle()
+            Color(.background)
                 .ignoresSafeArea()
-                .foregroundStyle(Color(.background))
 
             VStack {
 
