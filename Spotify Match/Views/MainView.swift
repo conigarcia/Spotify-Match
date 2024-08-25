@@ -16,10 +16,10 @@ struct MainView: View {
             VStack {
                 HeaderView()
                 Spacer()
-                if spotifyController.connected {
-                    CardDeckView()
-                } else {
+                if !spotifyController.connected {
                     ConnectSpotifyView()
+                } else {
+                    CardDeckView()
                 }
                 Spacer()
                 Spacer()

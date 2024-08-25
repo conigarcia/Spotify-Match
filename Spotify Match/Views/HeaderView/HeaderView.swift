@@ -18,14 +18,16 @@ struct HeaderView: View {
 
     var body: some View {
         ZStack {
-            SelectedPlaylistsView()
-                .onTapGesture {
-//                    Task {
-//                        let playlistSet = try await getPlaylists(spotifyController: spotifyController)
-//                        playlists = playlistSet.items
-//                        showingPlaylistSelection.toggle()
-//                    }
-                }
+            if spotifyController.connected {
+                SelectedPlaylistsView()
+                    .onTapGesture {
+//                        Task {
+//                            let playlistSet = try await getPlaylists(spotifyController: spotifyController)
+//                            playlists = playlistSet.items
+//                            showingPlaylistSelection.toggle()
+//                        }
+                    }
+            }
 
             HStack(alignment: .center) {
                 Button {
