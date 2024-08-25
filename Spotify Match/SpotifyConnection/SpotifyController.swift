@@ -9,39 +9,36 @@ import SwiftUI
 import SpotifyiOS
 import Combine
 
-class SpotifyController: NSObject, ObservableObject {
+@Observable class SpotifyController: NSObject {
     let spotifyClientID = "daf03714c388450c844fd00fef509b9d"
     let spotifyRedirectURL = URL(string:"spotifymatch://")!
     
     var accessToken: String? = nil
     
-    private var connectCancellable: AnyCancellable?
+//    private var connectCancellable: AnyCancellable?
+//    
+//    private var disconnectCancellable: AnyCancellable?
     
-    private var disconnectCancellable: AnyCancellable?
-    
-    override init() {
-        super.init()
-        connectCancellable = NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
-            .receive(on: DispatchQueue.main)
-            .sink { _ in
-                self.connect()
-            }
+//    override init() {
+//        super.init()
+//        connectCancellable = NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+//            .receive(on: DispatchQueue.main)
+//            .sink { _ in
+//                self.connect()
+//            }
+//        
+//        disconnectCancellable = NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
+//            .receive(on: DispatchQueue.main)
+//            .sink { _ in
+//                self.disconnect()
+//            }
+//
+//    }
         
-        disconnectCancellable = NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
-            .receive(on: DispatchQueue.main)
-            .sink { _ in
-                self.disconnect()
-            }
+    @ObservationIgnored lazy var configuration = SPTConfiguration(clientID: self.spotifyClientID, redirectURL: self.spotifyRedirectURL)
 
-    }
-        
-    lazy var configuration = SPTConfiguration(
-        clientID: spotifyClientID,
-        redirectURL: spotifyRedirectURL
-    )
-
-    lazy var appRemote: SPTAppRemote = {
-        let appRemote = SPTAppRemote(configuration: configuration, logLevel: .debug)
+    @ObservationIgnored lazy var appRemote: SPTAppRemote = {
+        let appRemote = SPTAppRemote(configuration: self.configuration, logLevel: .debug)
         appRemote.connectionParameters.accessToken = self.accessToken
         appRemote.delegate = self
         return appRemote
@@ -55,24 +52,27 @@ class SpotifyController: NSObject, ObservableObject {
             self.accessToken = accessToken
         } else if let errorDescription = parameters?[SPTAppRemoteErrorDescriptionKey] {
             print(errorDescription)
-        }
-        
-        print(accessToken ?? "no access token")
-        
+        }        
     }
     
+    var connected = false
+
     func connect() {
         guard let _ = self.appRemote.connectionParameters.accessToken else {
             self.appRemote.authorizeAndPlayURI("")
+            appRemote.connect()
+            connected = true
             return
         }
 
         appRemote.connect()
+        connected = true
     }
     
     func disconnect() {
         if appRemote.isConnected {
             appRemote.disconnect()
+            connected = false
         }
     }
 }

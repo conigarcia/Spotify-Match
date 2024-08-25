@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SongCardView: View, Identifiable {
     let id = UUID()
+    let size: CGFloat = 300
     
     let song: Song
     
@@ -18,15 +19,24 @@ struct SongCardView: View, Identifiable {
                 Image(song.cover)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 300)
-                    .clipShape(.rect(cornerRadius: 10))
-                Text(song.name)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.white)
+                    .frame(width: size)
+
+                HStack {
+                    Text(song.name)
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .scaledToFit()
+                        .minimumScaleFactor(0.6)
+                        .foregroundStyle(.white)
+                        .lineLimit(1)
+                    Spacer()
+                }
+                .frame(width: size)
+
                 Text(song.artist)
                     .font(.headline)
                     .foregroundStyle(.white)
+                    .lineLimit(1)
             }
             .padding()
         }

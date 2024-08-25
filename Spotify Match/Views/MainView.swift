@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct MainView: View {
+    @Environment(SpotifyController.self) private var spotifyController
+        
     var body: some View {
         ZStack {
             AppBackgroundView()
             VStack {
                 HeaderView()
                 Spacer()
-                CardDeckView()
+                if spotifyController.connected {
+                    CardDeckView()
+                } else {
+                    ConnectSpotifyView()
+                }
                 Spacer()
                 Spacer()
                     .frame(height: 40)
@@ -25,5 +31,7 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    @State var spotifyController = SpotifyController()
+    return MainView()
+        .environment(spotifyController)
 }

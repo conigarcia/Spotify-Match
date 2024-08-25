@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @EnvironmentObject var spotifyController: SpotifyController
+    @Environment(SpotifyController.self) private var spotifyController
+    
+    @State var showingConfiguration = false
+//    @State var showingHelp = false
+    @State var showingPlaylistSelection = false
+    
+    @State var playlists = [Playlist]()
 
     let timer = Timer.publish(every: 9, on: .main, in: .common).autoconnect()
     @State var offset: CGFloat = -250
@@ -44,14 +50,16 @@ struct HeaderView: View {
                     .frame(width: 200, height: 40)
             }
             .onTapGesture {
-                if !spotifyController.appRemote.isConnected {
-                    spotifyController.connect()
+                Task {
+                    let playlistSet = try await getPlaylists(spotifyController: spotifyController)
+                    playlists = playlistSet.items
+                    showingPlaylistSelection.toggle()
                 }
             }
             
             HStack(alignment: .center) {
                 Button {
-                    
+                    showingConfiguration.toggle()
                 } label: {
                     Image(systemName: "gearshape.circle.fill")
                 }
@@ -69,15 +77,25 @@ struct HeaderView: View {
             .frame(width: 350)
             .padding()
         }
+        .sheet(isPresented: $showingConfiguration) {
+            ConfigurationView()
+        }
+        .sheet(isPresented: $showingPlaylistSelection) {
+            if playlists.count >= 12 {
+                PlaylistSelectionView(originPlaylist: playlists[12], destinationPlaylist: playlists[1])
+            }
+        }
     }
 }
 
 #Preview {
+    @State var spotifyController = SpotifyController()
     return ZStack {
         AppBackgroundView()
         VStack {
             HeaderView()
             Spacer()
         }
+        .environment(spotifyController)
     }
 }

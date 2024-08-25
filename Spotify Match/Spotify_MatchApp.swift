@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Spotify_MatchApp: App {
-    @StateObject private var spotifyController = SpotifyController()
+    @State private var spotifyController = SpotifyController()
     
     var body: some Scene {
         WindowGroup {
@@ -17,10 +17,7 @@ struct Spotify_MatchApp: App {
                 .onOpenURL { url in
                     spotifyController.setAccessToken(from: url)
                 }
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didFinishLaunchingNotification), perform: { _ in
-                    spotifyController.connect()
-                })
-                .environmentObject(spotifyController)
+                .environment(spotifyController)
         }
     }
 }
