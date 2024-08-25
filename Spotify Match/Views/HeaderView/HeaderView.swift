@@ -63,6 +63,8 @@ struct HeaderView: View {
 }
 
 struct SelectedPlaylistsView: View {
+    @Environment(SpotifyData.self) private var spotifyData
+
     @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State var size = CGSize.zero
@@ -70,10 +72,10 @@ struct SelectedPlaylistsView: View {
 
     var body: some View {
         HStack {
-            Text("pop of english")
+            Text(spotifyData.originPlaylist?.name ?? "")
             Image(systemName: "arrow.right")
                 .fontWeight(.black)
-            Text("Tus me gusta")
+            Text(spotifyData.destinationPlaylist?.name ?? "")
         }
         .font(.body.smallCaps())
         .fontWeight(.bold)
@@ -102,7 +104,7 @@ struct SelectedPlaylistsView: View {
     }
 }
 
-#Preview {
+#Preview("header") {
     @State var spotifyController = SpotifyController()
     return ZStack {
         AppBackgroundView()
@@ -112,4 +114,12 @@ struct SelectedPlaylistsView: View {
         }
         .environment(spotifyController)
     }
+}
+
+#Preview("selectedPlaylists") {
+    @State var spotifyData = SpotifyData()
+    spotifyData.originPlaylist = Playlist(id: "", images: [], name: "pop of english")
+    spotifyData.destinationPlaylist = Playlist(id: "", images: [], name: "Tus me gusta")
+    return SelectedPlaylistsView()
+        .environment(spotifyData)
 }

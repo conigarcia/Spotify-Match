@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct Spotify_MatchApp: App {
     @State private var spotifyController = SpotifyController()
+    @State private var spotifyData = SpotifyData()
     
     var body: some Scene {
         WindowGroup {
@@ -18,6 +19,7 @@ struct Spotify_MatchApp: App {
                     spotifyController.setAccessToken(from: url)
                 }
                 .environment(spotifyController)
+                .environment(spotifyData)
         }
     }
 }
