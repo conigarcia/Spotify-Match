@@ -1,13 +1,13 @@
 //
-//  ConfigurationView.swift
+//  HelpView.swift
 //  Spotify Match
 //
-//  Created by coni garcia on 24/08/2024.
+//  Created by coni garcia on 25/08/2024.
 //
 
 import SwiftUI
 
-struct ConfigurationView: View {
+struct HelpView: View {
     var body: some View {
         ZStack {
             Rectangle()
@@ -15,7 +15,7 @@ struct ConfigurationView: View {
                 .foregroundStyle(Color(.background))
 
             VStack {
-                Text("Configuration")
+                Text("Help")
                     .font(.largeTitle.smallCaps())
                     .fontWeight(.bold)
                     .foregroundStyle(Color(.spotifyGreen))
@@ -25,14 +25,12 @@ struct ConfigurationView: View {
             }
             .padding()
         }
-    }
-}
+    }}
 
 #Preview {
     return NavigationStack {
         Text("Hello, World!")
     }
     .sheet(isPresented: .constant(true)) {
-        ConfigurationView()
-    }    
-}
+        HelpView()
+    }}

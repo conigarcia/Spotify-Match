@@ -49,6 +49,9 @@ struct HeaderView: View {
         .sheet(isPresented: $showingConfiguration) {
             ConfigurationView()
         }
+        .sheet(isPresented: $showingHelp) {
+            HelpView()
+        }
         .sheet(isPresented: $showingPlaylistSelection) {
 //            if playlists.count >= 12 {
 //                PlaylistSelectionView(originPlaylist: playlists[12], destinationPlaylist: playlists[1])
