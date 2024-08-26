@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @Environment(SpotifyController.self) private var spotifyController
-        
+    @Environment(SpotifyData.self) private var spotifyData
+    
     var body: some View {
         ZStack {
             AppBackgroundView()
@@ -19,7 +20,11 @@ struct MainView: View {
                 if !spotifyController.connected {
                     ConnectSpotifyView()
                 } else {
-                    CardDeckView()
+                    if spotifyData.incomplete {
+                        EmptyPlaylistSelectionView()
+                    } else {
+                        CardDeckView()
+                    }
                 }
                 Spacer()
                 Spacer()
@@ -32,6 +37,8 @@ struct MainView: View {
 
 #Preview {
     @State var spotifyController = SpotifyController()
+    @State var spotifyData = SpotifyData()
     return MainView()
         .environment(spotifyController)
+        .environment(spotifyData)
 }

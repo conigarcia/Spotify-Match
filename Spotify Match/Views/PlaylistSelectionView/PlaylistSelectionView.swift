@@ -8,28 +8,39 @@
 import SwiftUI
 
 struct PlaylistSelectionView: View {
-    let originPlaylist: Playlist
-    let destinationPlaylist: Playlist
-
+    @Environment(\.dismiss) private var dismiss
+    @Environment(SpotifyData.self) private var spotifyData
+    
     var body: some View {
-        ZStack {
-            Color(.background)
-                .ignoresSafeArea()
-
-            VStack {
-
-                Text("Select origin playlist")
-                    .smallTitle()
-
-                PlaylistCardView(playlist: originPlaylist)
-
-                Spacer()
-                    .frame(height: 70)
-
-                Text("Select destination playlist")
-                    .smallTitle()
-
-                PlaylistCardView(playlist: destinationPlaylist)
+        NavigationStack {
+            ZStack {
+                Color(.background)
+                    .ignoresSafeArea()
+                
+                VStack {
+                    
+                    Text("Select origin playlist")
+                        .modifier(SmallTitle())
+                    
+                    PlaylistCardView(playlist: spotifyData.originPlaylist)
+                    
+                    Spacer()
+                        .frame(height: 70)
+                    
+                    Text("Select destination playlist")
+                        .modifier(SmallTitle())
+                    
+                    PlaylistCardView(playlist: spotifyData.destinationPlaylist)
+                }
+            }
+            .toolbar {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .fontWeight(.bold)
+                        .foregroundStyle(.spotifyGreen)
+                }
             }
         }
     }
@@ -44,12 +55,8 @@ struct SmallTitle: ViewModifier {
     }
 }
 
-extension View {
-    func smallTitle() -> some View {
-        modifier(SmallTitle())
-    }
+#Preview {
+    @State var spotifyData = SpotifyData()
+    return PlaylistSelectionView()
+        .environment(spotifyData)
 }
-
-//#Preview {
-//    PlaylistSelectionView()
-//}

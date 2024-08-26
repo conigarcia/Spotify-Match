@@ -8,30 +8,36 @@
 import SwiftUI
 
 struct ConfigurationView: View {
-    var body: some View {
-        ZStack {
-            Color(.background)
-                .ignoresSafeArea()
+    @Environment(\.dismiss) private var dismiss
 
-            VStack {
-                Text("Configuration")
-                    .font(.largeTitle.smallCaps())
-                    .fontWeight(.bold)
-                    .foregroundStyle(Color(.spotifyGreen))
-                    .padding(.top, 25)
-                
-                Spacer()
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                Color(.background)
+                    .ignoresSafeArea()
+
+                VStack {
+                    Text("Configuration")
+                        .font(.title.smallCaps())
+                        .fontWeight(.bold)
+                        .foregroundStyle(Color(.spotifyGreen))
+                    
+                    Spacer()
+                }
+
             }
-            .padding()
+            .toolbar {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .closeButton()
+                }
+            }
         }
     }
 }
 
 #Preview {
-    return NavigationStack {
-        Text("Hello, World!")
-    }
-    .sheet(isPresented: .constant(true)) {
-        ConfigurationView()
-    }    
+    ConfigurationView()
 }

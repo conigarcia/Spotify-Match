@@ -10,4 +10,6 @@ import Foundation
 @Observable class SpotifyData {
     var originPlaylist: Playlist?
     var destinationPlaylist: Playlist?
+    
+    var incomplete: Bool { originPlaylist == nil || destinationPlaylist == nil }
 }

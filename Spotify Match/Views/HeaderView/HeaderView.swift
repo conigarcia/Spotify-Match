@@ -9,23 +9,18 @@ import SwiftUI
 
 struct HeaderView: View {
     @Environment(SpotifyController.self) private var spotifyController
+    @Environment(SpotifyData.self) private var spotifyData
     
     @State var showingConfiguration = false
     @State var showingHelp = false
     @State var showingPlaylistSelection = false
-    
-//    @State var playlists = [Playlist]()
 
     var body: some View {
         ZStack {
-            if spotifyController.connected {
+            if spotifyController.connected && !spotifyData.incomplete {
                 SelectedPlaylistsView()
                     .onTapGesture {
-//                        Task {
-//                            let playlistSet = try await getPlaylists(spotifyController: spotifyController)
-//                            playlists = playlistSet.items
-//                            showingPlaylistSelection.toggle()
-//                        }
+                        showingPlaylistSelection.toggle()
                     }
             }
 
@@ -45,19 +40,18 @@ struct HeaderView: View {
                 }
             }
             .font(.title)
+            .fontWeight(.bold)
             .foregroundStyle(.spotifyGreen)
             .padding()
         }
-        .sheet(isPresented: $showingConfiguration) {
+        .fullScreenCover(isPresented: $showingConfiguration) {
             ConfigurationView()
         }
-        .sheet(isPresented: $showingHelp) {
+        .fullScreenCover(isPresented: $showingHelp) {
             HelpView()
         }
-        .sheet(isPresented: $showingPlaylistSelection) {
-//            if playlists.count >= 12 {
-//                PlaylistSelectionView(originPlaylist: playlists[12], destinationPlaylist: playlists[1])
-//            }
+        .fullScreenCover(isPresented: $showingPlaylistSelection) {
+            PlaylistSelectionView()
         }
     }
 }
@@ -106,6 +100,7 @@ struct SelectedPlaylistsView: View {
 
 #Preview("header") {
     @State var spotifyController = SpotifyController()
+    @State var spotifyData = SpotifyData()
     return ZStack {
         AppBackgroundView()
         VStack {
@@ -113,6 +108,7 @@ struct SelectedPlaylistsView: View {
             Spacer()
         }
         .environment(spotifyController)
+        .environment(spotifyData)
     }
 }
 

@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct PlaylistCardView: View {
-    let size: CGFloat = 160
+    var size: CGFloat = 160
     
-    let playlist: Playlist
+    let playlist: Playlist?
 
     var body: some View {
         GroupBox {
-            AsyncImage(url: URL(string: playlist.images.first?.url ?? "")) { image in
-                image.image?
+            AsyncImage(url: URL(string: playlist?.images.first?.url ?? "")) { image in
+                image
                     .resizable()
-                    .frame(width: size, height: size)
+            } placeholder: {
+                EmptyView()
             }
+            .frame(width: size, height: size)
             
             HStack {
-                Text(playlist.name)
+                Text(playlist?.name ?? "")
                     .font(.subheadline)
                     .fontWeight(.bold)
                     .foregroundStyle(.white)
@@ -37,6 +39,6 @@ struct PlaylistCardView: View {
     }
 }
 
-//#Preview {
-//    PlaylistCardView()
-//}
+#Preview {
+    PlaylistCardView(playlist: Playlist(id: "", images: [], name: "pop of english"))
+}

@@ -20,6 +20,8 @@
 		CF884DAF2C7BBBAC00AB9163 /* ViewSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DAE2C7BBBAC00AB9163 /* ViewSize.swift */; };
 		CF884DB22C7BC0EB00AB9163 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DB12C7BC0EB00AB9163 /* HelpView.swift */; };
 		CF884DB42C7BC43700AB9163 /* SpotifyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DB32C7BC43700AB9163 /* SpotifyData.swift */; };
+		CF884DB62C7BFABA00AB9163 /* EmptyPlaylistSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DB52C7BFABA00AB9163 /* EmptyPlaylistSelectionView.swift */; };
+		CF884DB82C7C238100AB9163 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DB72C7C238100AB9163 /* CloseButton.swift */; };
 		CFA91D942C74F0E500D1202B /* Spotify_MatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */; };
 		CFA91D962C74F0E500D1202B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91D952C74F0E500D1202B /* MainView.swift */; };
 		CFA91D982C74F0E600D1202B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA91D972C74F0E600D1202B /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		CF884DAE2C7BBBAC00AB9163 /* ViewSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSize.swift; sourceTree = "<group>"; };
 		CF884DB12C7BC0EB00AB9163 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		CF884DB32C7BC43700AB9163 /* SpotifyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyData.swift; sourceTree = "<group>"; };
+		CF884DB52C7BFABA00AB9163 /* EmptyPlaylistSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPlaylistSelectionView.swift; sourceTree = "<group>"; };
+		CF884DB72C7C238100AB9163 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		CFA91D902C74F0E500D1202B /* Spotify Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify_MatchApp.swift; sourceTree = "<group>"; };
 		CFA91D952C74F0E500D1202B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -98,12 +102,13 @@
 			path = SpotifyConnection;
 			sourceTree = "<group>";
 		};
-		CF884DA32C7A91D300AB9163 /* Styles */ = {
+		CF884DA32C7A91D300AB9163 /* Styles & Modifiers */ = {
 			isa = PBXGroup;
 			children = (
 				CF884DA42C7A91F000AB9163 /* SPGroupBoxStyle.swift */,
+				CF884DB72C7C238100AB9163 /* CloseButton.swift */,
 			);
-			path = Styles;
+			path = "Styles & Modifiers";
 			sourceTree = "<group>";
 		};
 		CF884DAA2C7BB56D00AB9163 /* ConnectSpotifyView */ = {
@@ -121,6 +126,14 @@
 				CF884DA62C7B95CA00AB9163 /* PlaylistCardView.swift */,
 			);
 			path = PlaylistSelectionView;
+			sourceTree = "<group>";
+		};
+		CF884DB92C7C24C500AB9163 /* EmptyPlaylistSelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				CF884DB52C7BFABA00AB9163 /* EmptyPlaylistSelectionView.swift */,
+			);
+			path = EmptyPlaylistSelectionView;
 			sourceTree = "<group>";
 		};
 		CFA91D872C74F0E500D1202B = {
@@ -143,11 +156,11 @@
 			isa = PBXGroup;
 			children = (
 				CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */,
-				CF884D9E2C79483200AB9163 /* SpotifyConnection */,
 				CFA91DAE2C75155600D1202B /* Model */,
 				CFA91DA82C7508CD00D1202B /* Views */,
-				CF884DA32C7A91D300AB9163 /* Styles */,
+				CF884DA32C7A91D300AB9163 /* Styles & Modifiers */,
 				CFA91DA92C7508D900D1202B /* Utilities */,
+				CF884D9E2C79483200AB9163 /* SpotifyConnection */,
 				CFA91D992C74F0E600D1202B /* Preview Content */,
 				CFA91D972C74F0E600D1202B /* Assets.xcassets */,
 				CF884D922C77CE7100AB9163 /* Spotify-Match-Info.plist */,
@@ -179,8 +192,8 @@
 				CFA91D952C74F0E500D1202B /* MainView.swift */,
 				CF884D752C7791C300AB9163 /* HeaderView */,
 				CF884DAA2C7BB56D00AB9163 /* ConnectSpotifyView */,
+				CF884DB92C7C24C500AB9163 /* EmptyPlaylistSelectionView */,
 				CFA91DB12C75171000D1202B /* CardDeckView */,
-				CFA91DA72C7508B200D1202B /* SongCardView */,
 				CF884DB02C7BBFD000AB9163 /* PlaylistSelectionView */,
 				CFA91DB92C764EC200D1202B /* AppBackgroundView */,
 			);
@@ -211,6 +224,7 @@
 			children = (
 				CFA91DAC2C7513E000D1202B /* CardDeckView.swift */,
 				CFA91DB22C75171D00D1202B /* CardDeckViewModel.swift */,
+				CFA91DA72C7508B200D1202B /* SongCardView */,
 			);
 			path = CardDeckView;
 			sourceTree = "<group>";
@@ -308,6 +322,7 @@
 				CF884D9D2C79368300AB9163 /* NetworkError.swift in Sources */,
 				CFA91DAD2C7513E000D1202B /* CardDeckView.swift in Sources */,
 				CFA91DBB2C764F0D00D1202B /* SwipeEffectIcon.swift in Sources */,
+				CF884DB82C7C238100AB9163 /* CloseButton.swift in Sources */,
 				CF884DA92C7BA3E700AB9163 /* ConnectSpotifyView.swift in Sources */,
 				CFA91DA22C74F1C300D1202B /* SongCardView.swift in Sources */,
 				CFA91D942C74F0E500D1202B /* Spotify_MatchApp.swift in Sources */,
@@ -320,6 +335,7 @@
 				CFA91DB32C75171D00D1202B /* CardDeckViewModel.swift in Sources */,
 				CF884DA52C7A91F000AB9163 /* SPGroupBoxStyle.swift in Sources */,
 				CF884DAF2C7BBBAC00AB9163 /* ViewSize.swift in Sources */,
+				CF884DB62C7BFABA00AB9163 /* EmptyPlaylistSelectionView.swift in Sources */,
 				CFA91DA62C75055500D1202B /* ImageColor.swift in Sources */,
 				CF884D9B2C79322400AB9163 /* APICalls.swift in Sources */,
 				CF884D992C792FBF00AB9163 /* Playlist.swift in Sources */,
