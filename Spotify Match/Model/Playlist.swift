@@ -16,7 +16,7 @@ struct PlaylistSet: Codable {
     let items: [Playlist]
 }
 
-struct Playlist: Codable {
+struct Playlist: Codable, Identifiable {
     let id: String
     let images: [SpotifyImage]
     let name: String

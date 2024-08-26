@@ -12,6 +12,7 @@ struct PlaylistSelectionView: View {
     @Environment(SpotifyData.self) private var spotifyData
     
     var body: some View {
+        @Bindable var spotifyData = spotifyData
         NavigationStack {
             ZStack {
                 Color(.background)
@@ -22,7 +23,11 @@ struct PlaylistSelectionView: View {
                     Text("Select origin playlist")
                         .modifier(SmallTitle())
                     
-                    PlaylistCardView(playlist: spotifyData.originPlaylist)
+                    NavigationLink {
+                        PlaylistListView(playlist: $spotifyData.originPlaylist)
+                    } label: {
+                        PlaylistCardView(playlist: spotifyData.originPlaylist)
+                    }
                     
                     Spacer()
                         .frame(height: 70)
@@ -30,7 +35,11 @@ struct PlaylistSelectionView: View {
                     Text("Select destination playlist")
                         .modifier(SmallTitle())
                     
-                    PlaylistCardView(playlist: spotifyData.destinationPlaylist)
+                    NavigationLink {
+                        PlaylistListView(playlist: $spotifyData.destinationPlaylist)
+                    } label: {
+                        PlaylistCardView(playlist: spotifyData.destinationPlaylist)
+                    }
                 }
             }
             .toolbar {
