@@ -61,18 +61,15 @@ import Combine
         guard let _ = self.appRemote.connectionParameters.accessToken else {
             self.appRemote.authorizeAndPlayURI("")
             appRemote.connect()
-            connected = true
             return
         }
 
         appRemote.connect()
-        connected = true
     }
     
     func disconnect() {
         if appRemote.isConnected {
             appRemote.disconnect()
-            connected = false
         }
     }
 }
@@ -80,34 +77,16 @@ import Combine
 extension SpotifyController: SPTAppRemoteDelegate {
     func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
         self.appRemote = appRemote
-        self.appRemote.playerAPI?.delegate = self
-//        self.appRemote.playerAPI?.subscribe(toPlayerState: { (result, error) in
-//            if let error = error {
-//                debugPrint(error.localizedDescription)
-//            }
-//            
-//        })
+        connected = true
     }
     
     func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {
-        print("failed")
+        connected = false
+        print(error?.localizedDescription ?? "failed connection attempt")
     }
     
     func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
-        print("disconnected")
+        connected = false
+        print(error?.localizedDescription ?? "disconnected")
     }
 }
-
-extension SpotifyController: SPTAppRemotePlayerStateDelegate {
-    func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
-        debugPrint("Track name: %@", playerState.track.name)
-    }
-
-}
-
-//extension SpotifyController: SPTAppRemotePlayerStateDelegate {
-//    func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
-//        // noop
-//    }
-//    
-//}
