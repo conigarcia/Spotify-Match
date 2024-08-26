@@ -68,18 +68,20 @@ struct SelectedPlaylistsView: View {
 
     var body: some View {
         HStack {
-            Text(spotifyData.originPlaylist?.name ?? "")
-                .shadow(color: .shadowGreen, radius: 4)
-            Image(systemName: "arrow.right")
-                .fontWeight(.black)
-            Text(spotifyData.destinationPlaylist?.name ?? "")
-                .shadow(color: .shadowGreen, radius: 4)
+            Group {
+                Text(spotifyData.originPlaylist?.name ?? "")
+                    .shadow(color: .shadowGreen, radius: 4)
+                Image(systemName: "arrow.right")
+                    .fontWeight(.black)
+                Text(spotifyData.destinationPlaylist?.name ?? "")
+                    .shadow(color: .shadowGreen, radius: 4)
+            }
+            .font(.body.smallCaps())
+            .fontWeight(.bold)
+            .foregroundStyle(.white)
+            .lineLimit(1)
+            .fixedSize()
         }
-        .font(.body.smallCaps())
-        .fontWeight(.bold)
-        .foregroundStyle(.white)
-        .lineLimit(1)
-        .fixedSize()
         .frame(height: 40)
         .padding(.horizontal, 15)
         .background() {
@@ -92,6 +94,8 @@ struct SelectedPlaylistsView: View {
                 }
             }
         }
+        .frame(minWidth: 200)
+        .background(.spotifyGreen)
         .offset(x: offset)
         .onReceive(timer) { _ in
             withAnimation {
@@ -105,14 +109,25 @@ struct SelectedPlaylistsView: View {
         }
         .shadow(color: .black, radius: 6)
         .onChange(of: size) {
-            timer = Timer.publish(every: TimeInterval((size.width * 0.015) + 1), on: .main, in: .common).autoconnect()
-            animation = .easeInOut(duration: size.width * 0.015)
-            offset = size.width/2 - 100
+            print(size)
+            if size.width <= 200 {
+                animation = .easeInOut(duration: 0)
+                offset = 0
+            } else {
+                timer = Timer.publish(every: TimeInterval((size.width * 0.015) + 1), on: .main, in: .common).autoconnect()
+                animation = .easeInOut(duration: size.width * 0.015)
+                offset = size.width/2 - 100
+            }
         }
         .onAppear {
-            timer = Timer.publish(every: TimeInterval((size.width * 0.015) + 1), on: .main, in: .common).autoconnect()
-            animation = .easeInOut(duration: size.width * 0.015)
-            offset = size.width/2 - 100
+            if size.width <= 200 {
+                animation = .easeInOut(duration: 0)
+                offset = 0
+            } else {
+                timer = Timer.publish(every: TimeInterval((size.width * 0.015) + 1), on: .main, in: .common).autoconnect()
+                animation = .easeInOut(duration: size.width * 0.015)
+                offset = size.width/2 - 100
+            }
         }
     }
 }
