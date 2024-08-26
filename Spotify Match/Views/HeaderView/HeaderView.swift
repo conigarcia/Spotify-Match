@@ -17,13 +17,6 @@ struct HeaderView: View {
 
     var body: some View {
         ZStack {
-            if spotifyController.connected && !spotifyData.incomplete {
-                SelectedPlaylistsView()
-                    .onTapGesture {
-                        showingPlaylistSelection.toggle()
-                    }
-            }
-
             HStack(alignment: .center) {
                 Button {
                     showingConfiguration.toggle()
@@ -42,7 +35,15 @@ struct HeaderView: View {
             .font(.title)
             .fontWeight(.bold)
             .foregroundStyle(.spotifyGreen)
+            .frame(width: 360)
             .padding()
+            
+            if spotifyController.connected && !spotifyData.incomplete {
+                SelectedPlaylistsView()
+                    .onTapGesture {
+                        showingPlaylistSelection.toggle()
+                    }
+            }
         }
         .fullScreenCover(isPresented: $showingConfiguration) {
             ConfigurationView()
@@ -59,41 +60,59 @@ struct HeaderView: View {
 struct SelectedPlaylistsView: View {
     @Environment(SpotifyData.self) private var spotifyData
 
-    @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
     @State var size = CGSize.zero
+    
+    @State var timer = Timer.publish(every: 10, on: .main, in: .common).autoconnect()
     @State var offset: CGFloat = 0
+    @State var animation: Animation = .easeInOut(duration: 0)
 
     var body: some View {
         HStack {
             Text(spotifyData.originPlaylist?.name ?? "")
+                .shadow(color: .shadowGreen, radius: 4)
             Image(systemName: "arrow.right")
                 .fontWeight(.black)
             Text(spotifyData.destinationPlaylist?.name ?? "")
+                .shadow(color: .shadowGreen, radius: 4)
         }
         .font(.body.smallCaps())
         .fontWeight(.bold)
+        .foregroundStyle(.white)
         .lineLimit(1)
         .fixedSize()
-        .foregroundStyle(.black)
         .frame(height: 40)
         .padding(.horizontal, 15)
-        .background(.spotifyGreen)
-        .saveSize(in: $size)
+        .background() {
+            Color(.spotifyGreen)
+            GeometryReader { geometry in
+                Path { _ in
+                    DispatchQueue.main.async {
+                        size = geometry.size
+                    }
+                }
+            }
+        }
         .offset(x: offset)
         .onReceive(timer) { _ in
             withAnimation {
                 offset = -offset
             }
         }
-        .animation(.easeInOut(duration: size.width * 0.015), value: offset)
+        .animation(animation, value: offset)
         .mask {
             Capsule()
                 .frame(width: 200, height: 40)
         }
-        .onAppear {
-            offset = size.width/2 - 100
+        .shadow(color: .black, radius: 6)
+        .onChange(of: size) {
             timer = Timer.publish(every: TimeInterval((size.width * 0.015) + 1), on: .main, in: .common).autoconnect()
+            animation = .easeInOut(duration: size.width * 0.015)
+            offset = size.width/2 - 100
+        }
+        .onAppear {
+            timer = Timer.publish(every: TimeInterval((size.width * 0.015) + 1), on: .main, in: .common).autoconnect()
+            animation = .easeInOut(duration: size.width * 0.015)
+            offset = size.width/2 - 100
         }
     }
 }
@@ -107,15 +126,18 @@ struct SelectedPlaylistsView: View {
             HeaderView()
             Spacer()
         }
-        .environment(spotifyController)
-        .environment(spotifyData)
     }
+    .environment(spotifyController)
+    .environment(spotifyData)
 }
 
 #Preview("selectedPlaylists") {
     @State var spotifyData = SpotifyData()
     spotifyData.originPlaylist = Playlist(id: "", images: [], name: "pop of english")
     spotifyData.destinationPlaylist = Playlist(id: "", images: [], name: "Tus me gusta")
-    return SelectedPlaylistsView()
-        .environment(spotifyData)
+    return ZStack {
+        AppBackgroundView()
+        SelectedPlaylistsView()
+    }
+    .environment(spotifyData)
 }

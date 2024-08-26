@@ -7,7 +7,8 @@
 
 import Foundation
 
-@Observable class SpotifyData {
+@Observable
+class SpotifyData {
     var originPlaylist: Playlist?
     var destinationPlaylist: Playlist?
     
