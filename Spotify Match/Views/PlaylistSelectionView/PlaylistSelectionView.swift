@@ -47,8 +47,7 @@ struct PlaylistSelectionView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark.circle.fill")
-                        .fontWeight(.bold)
-                        .foregroundStyle(.spotifyGreen)
+                        .closeButton()
                 }
             }
         }

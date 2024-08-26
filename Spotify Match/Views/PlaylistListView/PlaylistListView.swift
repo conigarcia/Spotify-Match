@@ -45,20 +45,19 @@ struct PlaylistListView: View {
                 Image(systemName: "checkmark.circle.fill")
                     .closeButton()
             }
-            .disabled(selectedPlaylistId == nil)
         }
         .task {
             do {
                 let playlistSet = try await getPlaylists(spotifyController: spotifyController)
                 playlists = playlistSet.items
             } catch NetworkError.invalidURL {
-                print("invalid URL")
+                print("getPlaylists - invalid URL")
             } catch NetworkError.invalidResponse {
-                print("invalid response")
+                print("getPlaylists - invalid response")
             } catch NetworkError.invalidData {
-                print("invalid data")
+                print("getPlaylists - invalid data")
             } catch {
-                print("unexpected error")
+                print("getPlaylists - unexpected error")
             }
         }
     }

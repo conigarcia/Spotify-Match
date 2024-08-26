@@ -20,6 +20,7 @@ struct Spotify_MatchApp: App {
                 }
                 .environment(spotifyController)
                 .environment(spotifyData)
+                .environment(\.colorScheme, .dark)
         }
     }
 }
