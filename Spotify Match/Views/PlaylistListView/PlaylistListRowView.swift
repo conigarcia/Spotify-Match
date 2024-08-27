@@ -19,57 +19,50 @@ struct PlaylistListRowView: View {
                 image
                     .resizable()
             } placeholder: {
-                Rectangle()
-                    .foregroundStyle(.separator)
+                PlaylistPlaceholder()
             }
             .frame(width: size, height: size)
             
             Text(playlist.name)
                 .font(.callout)
-                .fontWeight(.medium)
-                .foregroundStyle(selected ? .spotifyGreen : .white)
+                .fontWeight(.semibold)
+                .foregroundStyle(selected ? .spotifyGreen : Color(.label))
             
+            Spacer()
+
             if selected {
-                Spacer()
                 Image(systemName: "checkmark")
                     .font(.title3)
                     .fontWeight(.bold)
                     .foregroundStyle(.spotifyGreen)
             }
         }
+        .frame(maxWidth: .infinity)
     }
 }
 
 #Preview("unselected") {
-    return ZStack {
-        Color(.background)
-            .ignoresSafeArea()
-        List {
-            PlaylistListRowView(
-                playlist: Playlist(id: "", images: [], name: "pop of english"),
-                selected: false
-            )
-            .listRowSeparator(.hidden)
-            .listRowBackground(EmptyView())
-        }
-        .listStyle(.plain)
-        .padding(.top)
+    return List {
+        PlaylistListRowView(
+            playlist: Playlist(id: "", images: [], name: "pop of english"),
+            selected: false
+        )
+        .listRowSeparator(.hidden)
+        .listRowBackground(EmptyView())
     }
+    .listStyle(.plain)
+    .padding(.top)
 }
 
 #Preview("selected") {
-    return ZStack {
-        Color(.background)
-            .ignoresSafeArea()
-        List {
-            PlaylistListRowView(
-                playlist: Playlist(id: "", images: [], name: "pop of english"),
-                selected: true
-            )
-            .listRowSeparator(.hidden)
-            .listRowBackground(EmptyView())
-        }
-        .listStyle(.plain)
-        .padding(.top)
+    return List {
+        PlaylistListRowView(
+            playlist: Playlist(id: "", images: [], name: "pop of english"),
+            selected: true
+        )
+        .listRowSeparator(.hidden)
+        .listRowBackground(EmptyView())
     }
+    .listStyle(.plain)
+    .padding(.top)
 }

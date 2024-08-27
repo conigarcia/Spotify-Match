@@ -25,10 +25,17 @@ final class TrackCardViewModel {
         return artists?.formatted() ?? ""
     }
     
-    func getColor() async -> Color {
-        guard let coverUrl = URL(string: getCoverUrl()) else { return Color(.systemGroupedBackground) }
-        guard let (coverData, _) = try? await URLSession.shared.data(from: coverUrl) else { return Color(.systemGroupedBackground) }
-        guard let cover = UIImage(data: coverData) else { return Color(.systemGroupedBackground) }
-        return Color(cover.averageColor ?? .systemGroupedBackground)
+    func getColor() async -> Color? {
+        let coverString = getCoverUrl()
+        if coverString.isEmpty { return nil }
+        
+        guard let coverUrl = URL(string: getCoverUrl()) else { return nil }
+        guard let (coverData, _) = try? await URLSession.shared.data(from: coverUrl) else { return nil }
+        guard let cover = UIImage(data: coverData) else { return nil }
+        if let color = cover.averageColor {
+            return Color(color)
+        } else {
+            return nil
+        }
     }
 }

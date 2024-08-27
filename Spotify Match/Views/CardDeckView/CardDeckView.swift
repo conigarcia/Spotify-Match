@@ -19,7 +19,7 @@ struct CardDeckView: View {
     var body: some View {
         VStack {
             if viewModel.deck.isEmpty {
-                EmptyPlaylistView()
+                EmptyCardView(text: "The selected origin playlist has no tracks.")
             } else {
                 ZStack {
                     if viewModel.topCardOffset.width > 150 {

@@ -12,52 +12,54 @@ struct PlaylistListView: View {
     @Environment(\.dismiss) private var dismiss
     
     @State var playlists = [Playlist]()
-    @State var selectedPlaylistId: String?
-
+    @State var selectedPlaylist: Playlist?
+    
+    let title: String
     @Binding var playlist: Playlist?
-
+    
     var body: some View {
-        ZStack {
-            Color(.background)
-                .ignoresSafeArea()
+        VStack {
+            Text(title)
+                .font(.title3)
+                .fontWeight(.bold)
+                .foregroundStyle(.spotifyGreen)
             
-            VStack {
-                Text("Select origin playlist")
-                    .font(.title3.smallCaps())
-                    .fontWeight(.bold)
-                    .foregroundStyle(.spotifyGreen)
-                    .padding(.bottom)
-
-                List(playlists, selection: $selectedPlaylistId) { playlist in
-                    PlaylistListRowView(playlist: playlist, selected: playlist.id == selectedPlaylistId)
-                        .listRowSeparator(.hidden)
-                        .listRowBackground(EmptyView())
-                }
-                .listStyle(.plain)
+            List(playlists) { playlist in
+                PlaylistListRowView(playlist: playlist, selected: playlist.id == selectedPlaylist?.id)
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(EmptyView())
+                    .onTapGesture {
+                        if playlist.id == selectedPlaylist?.id {
+                            selectedPlaylist = nil
+                        } else {
+                            selectedPlaylist = playlist
+                        }
+                    }
             }
+            .listStyle(.plain)
         }
         .navigationBarBackButtonHidden()
         .toolbar {
             Button {
-                playlist = playlists.first(where: { $0.id == selectedPlaylistId })
+                playlist = selectedPlaylist
                 dismiss()
             } label: {
                 Image(systemName: "checkmark.circle.fill")
-                    .closeButton()
+                    .toolbarButton()
             }
-        }
-        .task {
-            do {
-                let playlistSet = try await getPlaylists(spotifyController: spotifyController)
-                playlists = playlistSet.items
-            } catch NetworkError.invalidURL {
-                print("getPlaylists - invalid URL")
-            } catch NetworkError.invalidResponse {
-                print("getPlaylists - invalid response")
-            } catch NetworkError.invalidData {
-                print("getPlaylists - invalid data")
-            } catch {
-                print("getPlaylists - unexpected error")
+            .task {
+                do {
+                    let playlistSet = try await getPlaylists(spotifyController: spotifyController)
+                    playlists = playlistSet.items
+                } catch NetworkError.invalidURL {
+                    print("getPlaylists - invalid URL")
+                } catch NetworkError.invalidResponse {
+                    print("getPlaylists - invalid response")
+                } catch NetworkError.invalidData {
+                    print("getPlaylists - invalid data")
+                } catch {
+                    print("getPlaylists - unexpected error")
+                }
             }
         }
     }
@@ -67,7 +69,7 @@ struct PlaylistListView: View {
     @State var spotifyController = SpotifyController()
     @State var spotifyData = SpotifyData()
     return NavigationStack {
-        PlaylistListView(playlist: $spotifyData.originPlaylist)
+        PlaylistListView(title: "Origin playlist", playlist: $spotifyData.originPlaylist)
     }
     .environment(spotifyController)
     .environment(spotifyData)

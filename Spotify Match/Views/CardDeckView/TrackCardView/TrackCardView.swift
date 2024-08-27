@@ -12,7 +12,7 @@ struct TrackCardView: View, Identifiable {
     
     let id = UUID()
     let size: CGFloat = 300
-    @State var color = Color(.systemBackground)
+    @State var color: Color?
     
     let track: Track
     
@@ -24,7 +24,9 @@ struct TrackCardView: View, Identifiable {
                         .resizable()
                         .scaledToFit()
                 } placeholder: {
-                    EmptyView()
+                    Rectangle()
+                        .foregroundStyle(Color(.systemGray5))
+                        .frame(width: size, height: size)
                 }
                 .frame(width: size, height: size)
                 
@@ -51,7 +53,7 @@ struct TrackCardView: View, Identifiable {
             }
             .padding()
         }
-        .backgroundStyle(color)
+        .backgroundStyle(color ?? Color(.secondarySystemBackground))
         .onAppear {
             viewModel.track = track
         }
@@ -62,15 +64,12 @@ struct TrackCardView: View, Identifiable {
 }
 
 #Preview {
-    return ZStack {
-        AppBackgroundView()
-        TrackCardView(
-            track: Track(
-                name: "BITTERSUITE",
-                artists: [Artist(name: "Billie Eilish")],
-                album: Album(name: "HIT ME HARD AND SOFT", images: []),
-                previewUrl: nil
-            )
+    TrackCardView(
+        track: Track(
+            name: "BITTERSUITE",
+            artists: [Artist(name: "Billie Eilish")],
+            album: Album(name: "HIT ME HARD AND SOFT", images: []),
+            previewUrl: nil
         )
-    }
+    )
 }

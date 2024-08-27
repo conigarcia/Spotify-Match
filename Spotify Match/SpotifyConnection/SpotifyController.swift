@@ -77,7 +77,9 @@ import Combine
 extension SpotifyController: SPTAppRemoteDelegate {
     func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
         self.appRemote = appRemote
-        connected = true
+        withAnimation(.spring) {
+            connected = true
+        }
     }
     
     func appRemote(_ appRemote: SPTAppRemote, didFailConnectionAttemptWithError error: Error?) {

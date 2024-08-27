@@ -9,31 +9,25 @@ import SwiftUI
 
 struct ConfigurationView: View {
     @Environment(\.dismiss) private var dismiss
-
+    
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color(.background)
-                    .ignoresSafeArea()
-
-                VStack {
-                    Text("Configuration")
-                        .font(.title.smallCaps())
-                        .fontWeight(.bold)
-                        .foregroundStyle(Color(.spotifyGreen))
-                    
-                    Spacer()
-                }
-
+            VStack {
+                Text("Configuration")
+                    .titleText()
+                    .foregroundStyle(Color(.spotifyGreen))
+                
+                Spacer()
             }
             .toolbar {
                 Button {
                     dismiss()
                 } label: {
                     Image(systemName: "xmark.circle.fill")
-                        .closeButton()
+                        .toolbarButton()
                 }
             }
+            
         }
     }
 }

@@ -13,19 +13,19 @@
 		CF884D9B2C79322400AB9163 /* APICalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884D9A2C79322400AB9163 /* APICalls.swift */; };
 		CF884D9D2C79368300AB9163 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884D9C2C79368300AB9163 /* NetworkError.swift */; };
 		CF884DA02C7A878B00AB9163 /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884D9F2C7A878B00AB9163 /* ConfigurationView.swift */; };
-		CF884DA22C7A8C8F00AB9163 /* PlaylistSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DA12C7A8C8F00AB9163 /* PlaylistSelectionView.swift */; };
-		CF884DA52C7A91F000AB9163 /* SPGroupBoxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DA42C7A91F000AB9163 /* SPGroupBoxStyle.swift */; };
 		CF884DA72C7B95CA00AB9163 /* PlaylistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DA62C7B95CA00AB9163 /* PlaylistCardView.swift */; };
 		CF884DA92C7BA3E700AB9163 /* ConnectSpotifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DA82C7BA3E700AB9163 /* ConnectSpotifyView.swift */; };
-		CF884DAF2C7BBBAC00AB9163 /* ViewSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DAE2C7BBBAC00AB9163 /* ViewSize.swift */; };
 		CF884DB22C7BC0EB00AB9163 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DB12C7BC0EB00AB9163 /* HelpView.swift */; };
 		CF884DB42C7BC43700AB9163 /* SpotifyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DB32C7BC43700AB9163 /* SpotifyData.swift */; };
-		CF884DB62C7BFABA00AB9163 /* EmptyPlaylistSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DB52C7BFABA00AB9163 /* EmptyPlaylistSelectionView.swift */; };
-		CF884DB82C7C238100AB9163 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DB72C7C238100AB9163 /* CloseButton.swift */; };
+		CF884DB62C7BFABA00AB9163 /* EmptyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DB52C7BFABA00AB9163 /* EmptyCardView.swift */; };
+		CF884DB82C7C238100AB9163 /* ToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DB72C7C238100AB9163 /* ToolbarButton.swift */; };
 		CF884DBB2C7CC15700AB9163 /* PlaylistListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DBA2C7CC15700AB9163 /* PlaylistListView.swift */; };
 		CF884DBE2C7CCB6E00AB9163 /* PlaylistListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DBD2C7CCB6E00AB9163 /* PlaylistListRowView.swift */; };
 		CF884DC02C7CF7D500AB9163 /* TrackCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DBF2C7CF7D500AB9163 /* TrackCardViewModel.swift */; };
-		CF884DC22C7D0C9C00AB9163 /* EmptyPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DC12C7D0C9C00AB9163 /* EmptyPlaylistView.swift */; };
+		CF884DC62C7D436400AB9163 /* TextModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DC52C7D436400AB9163 /* TextModifiers.swift */; };
+		CF884DC82C7D640100AB9163 /* PlaylistSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DC72C7D640100AB9163 /* PlaylistSelectionView.swift */; };
+		CF884DCB2C7D814200AB9163 /* PlaylistPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DCA2C7D814200AB9163 /* PlaylistPlaceholder.swift */; };
+		CF884DD12C7E23F600AB9163 /* SpinningIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF884DD02C7E23F600AB9163 /* SpinningIcon.swift */; };
 		CFA91D942C74F0E500D1202B /* Spotify_MatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */; };
 		CFA91D962C74F0E500D1202B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91D952C74F0E500D1202B /* MainView.swift */; };
 		CFA91D982C74F0E600D1202B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFA91D972C74F0E600D1202B /* Assets.xcassets */; };
@@ -38,7 +38,6 @@
 		CFA91DB32C75171D00D1202B /* CardDeckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DB22C75171D00D1202B /* CardDeckViewModel.swift */; };
 		CFA91DB62C75401700D1202B /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = CFA91DB52C75401700D1202B /* Algorithms */; };
 		CFA91DBB2C764F0D00D1202B /* SwipeEffectIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DBA2C764F0D00D1202B /* SwipeEffectIcon.swift */; };
-		CFA91DC12C76CB2700D1202B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFA91DC02C76CB2700D1202B /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,19 +48,19 @@
 		CF884D9A2C79322400AB9163 /* APICalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICalls.swift; sourceTree = "<group>"; };
 		CF884D9C2C79368300AB9163 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CF884D9F2C7A878B00AB9163 /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
-		CF884DA12C7A8C8F00AB9163 /* PlaylistSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistSelectionView.swift; sourceTree = "<group>"; };
-		CF884DA42C7A91F000AB9163 /* SPGroupBoxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPGroupBoxStyle.swift; sourceTree = "<group>"; };
 		CF884DA62C7B95CA00AB9163 /* PlaylistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCardView.swift; sourceTree = "<group>"; };
 		CF884DA82C7BA3E700AB9163 /* ConnectSpotifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSpotifyView.swift; sourceTree = "<group>"; };
-		CF884DAE2C7BBBAC00AB9163 /* ViewSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSize.swift; sourceTree = "<group>"; };
 		CF884DB12C7BC0EB00AB9163 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		CF884DB32C7BC43700AB9163 /* SpotifyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyData.swift; sourceTree = "<group>"; };
-		CF884DB52C7BFABA00AB9163 /* EmptyPlaylistSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPlaylistSelectionView.swift; sourceTree = "<group>"; };
-		CF884DB72C7C238100AB9163 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		CF884DB52C7BFABA00AB9163 /* EmptyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCardView.swift; sourceTree = "<group>"; };
+		CF884DB72C7C238100AB9163 /* ToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarButton.swift; sourceTree = "<group>"; };
 		CF884DBA2C7CC15700AB9163 /* PlaylistListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistListView.swift; sourceTree = "<group>"; };
 		CF884DBD2C7CCB6E00AB9163 /* PlaylistListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistListRowView.swift; sourceTree = "<group>"; };
 		CF884DBF2C7CF7D500AB9163 /* TrackCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCardViewModel.swift; sourceTree = "<group>"; };
-		CF884DC12C7D0C9C00AB9163 /* EmptyPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPlaylistView.swift; sourceTree = "<group>"; };
+		CF884DC52C7D436400AB9163 /* TextModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifiers.swift; sourceTree = "<group>"; };
+		CF884DC72C7D640100AB9163 /* PlaylistSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistSelectionView.swift; sourceTree = "<group>"; };
+		CF884DCA2C7D814200AB9163 /* PlaylistPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPlaceholder.swift; sourceTree = "<group>"; };
+		CF884DD02C7E23F600AB9163 /* SpinningIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinningIcon.swift; sourceTree = "<group>"; };
 		CFA91D902C74F0E500D1202B /* Spotify Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotify Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA91D932C74F0E500D1202B /* Spotify_MatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify_MatchApp.swift; sourceTree = "<group>"; };
 		CFA91D952C74F0E500D1202B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -74,7 +73,6 @@
 		CFA91DAF2C75156100D1202B /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		CFA91DB22C75171D00D1202B /* CardDeckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckViewModel.swift; sourceTree = "<group>"; };
 		CFA91DBA2C764F0D00D1202B /* SwipeEffectIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeEffectIcon.swift; sourceTree = "<group>"; };
-		CFA91DC02C76CB2700D1202B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,14 +88,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CF884D752C7791C300AB9163 /* HeaderView */ = {
+		CF884D752C7791C300AB9163 /* ConfigurationView */ = {
 			isa = PBXGroup;
 			children = (
-				CFA91DC02C76CB2700D1202B /* HeaderView.swift */,
 				CF884D9F2C7A878B00AB9163 /* ConfigurationView.swift */,
-				CF884DB12C7BC0EB00AB9163 /* HelpView.swift */,
 			);
-			path = HeaderView;
+			path = ConfigurationView;
 			sourceTree = "<group>";
 		};
 		CF884D9E2C79483200AB9163 /* SpotifyConnection */ = {
@@ -113,8 +109,8 @@
 		CF884DA32C7A91D300AB9163 /* Styles & Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				CF884DA42C7A91F000AB9163 /* SPGroupBoxStyle.swift */,
-				CF884DB72C7C238100AB9163 /* CloseButton.swift */,
+				CF884DB72C7C238100AB9163 /* ToolbarButton.swift */,
+				CF884DC52C7D436400AB9163 /* TextModifiers.swift */,
 			);
 			path = "Styles & Modifiers";
 			sourceTree = "<group>";
@@ -127,21 +123,12 @@
 			path = ConnectSpotifyView;
 			sourceTree = "<group>";
 		};
-		CF884DB02C7BBFD000AB9163 /* PlaylistSelectionView */ = {
+		CF884DB92C7C24C500AB9163 /* EmptyCardView */ = {
 			isa = PBXGroup;
 			children = (
-				CF884DA12C7A8C8F00AB9163 /* PlaylistSelectionView.swift */,
-				CF884DA62C7B95CA00AB9163 /* PlaylistCardView.swift */,
+				CF884DB52C7BFABA00AB9163 /* EmptyCardView.swift */,
 			);
-			path = PlaylistSelectionView;
-			sourceTree = "<group>";
-		};
-		CF884DB92C7C24C500AB9163 /* EmptyPlaylistSelectionView */ = {
-			isa = PBXGroup;
-			children = (
-				CF884DB52C7BFABA00AB9163 /* EmptyPlaylistSelectionView.swift */,
-			);
-			path = EmptyPlaylistSelectionView;
+			path = EmptyCardView;
 			sourceTree = "<group>";
 		};
 		CF884DBC2C7CC15B00AB9163 /* PlaylistListView */ = {
@@ -151,6 +138,31 @@
 				CF884DBD2C7CCB6E00AB9163 /* PlaylistListRowView.swift */,
 			);
 			path = PlaylistListView;
+			sourceTree = "<group>";
+		};
+		CF884DC92C7D7E6F00AB9163 /* PlaylistSelectionView */ = {
+			isa = PBXGroup;
+			children = (
+				CF884DC72C7D640100AB9163 /* PlaylistSelectionView.swift */,
+				CF884DA62C7B95CA00AB9163 /* PlaylistCardView.swift */,
+			);
+			path = PlaylistSelectionView;
+			sourceTree = "<group>";
+		};
+		CF884DCC2C7D819A00AB9163 /* PlaylistPlaceholder */ = {
+			isa = PBXGroup;
+			children = (
+				CF884DCA2C7D814200AB9163 /* PlaylistPlaceholder.swift */,
+			);
+			path = PlaylistPlaceholder;
+			sourceTree = "<group>";
+		};
+		CF884DCD2C7D81D900AB9163 /* HelpView */ = {
+			isa = PBXGroup;
+			children = (
+				CF884DB12C7BC0EB00AB9163 /* HelpView.swift */,
+			);
+			path = HelpView;
 			sourceTree = "<group>";
 		};
 		CFA91D872C74F0E500D1202B = {
@@ -197,7 +209,6 @@
 		CFA91DA72C7508B200D1202B /* TrackCardView */ = {
 			isa = PBXGroup;
 			children = (
-				CFA91DBA2C764F0D00D1202B /* SwipeEffectIcon.swift */,
 				CFA91DA12C74F1C300D1202B /* TrackCardView.swift */,
 				CF884DBF2C7CF7D500AB9163 /* TrackCardViewModel.swift */,
 			);
@@ -208,11 +219,13 @@
 			isa = PBXGroup;
 			children = (
 				CFA91D952C74F0E500D1202B /* MainView.swift */,
-				CF884D752C7791C300AB9163 /* HeaderView */,
+				CF884D752C7791C300AB9163 /* ConfigurationView */,
+				CF884DCD2C7D81D900AB9163 /* HelpView */,
 				CF884DAA2C7BB56D00AB9163 /* ConnectSpotifyView */,
-				CF884DB92C7C24C500AB9163 /* EmptyPlaylistSelectionView */,
+				CF884DB92C7C24C500AB9163 /* EmptyCardView */,
 				CFA91DB12C75171000D1202B /* CardDeckView */,
-				CF884DB02C7BBFD000AB9163 /* PlaylistSelectionView */,
+				CF884DC92C7D7E6F00AB9163 /* PlaylistSelectionView */,
+				CF884DCC2C7D819A00AB9163 /* PlaylistPlaceholder */,
 				CF884DBC2C7CC15B00AB9163 /* PlaylistListView */,
 				CFA91DB92C764EC200D1202B /* AppBackgroundView */,
 			);
@@ -223,7 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				CFA91DA52C75055500D1202B /* ImageColor.swift */,
-				CF884DAE2C7BBBAC00AB9163 /* ViewSize.swift */,
+				CF884DD02C7E23F600AB9163 /* SpinningIcon.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -243,7 +256,7 @@
 			children = (
 				CFA91DAC2C7513E000D1202B /* CardDeckView.swift */,
 				CFA91DB22C75171D00D1202B /* CardDeckViewModel.swift */,
-				CF884DC12C7D0C9C00AB9163 /* EmptyPlaylistView.swift */,
+				CFA91DBA2C764F0D00D1202B /* SwipeEffectIcon.swift */,
 				CFA91DA72C7508B200D1202B /* TrackCardView */,
 			);
 			path = CardDeckView;
@@ -338,27 +351,26 @@
 			files = (
 				CFA91D962C74F0E500D1202B /* MainView.swift in Sources */,
 				CF884DA02C7A878B00AB9163 /* ConfigurationView.swift in Sources */,
-				CF884DC22C7D0C9C00AB9163 /* EmptyPlaylistView.swift in Sources */,
 				CF884DA72C7B95CA00AB9163 /* PlaylistCardView.swift in Sources */,
+				CF884DC82C7D640100AB9163 /* PlaylistSelectionView.swift in Sources */,
 				CF884D9D2C79368300AB9163 /* NetworkError.swift in Sources */,
 				CFA91DAD2C7513E000D1202B /* CardDeckView.swift in Sources */,
 				CFA91DBB2C764F0D00D1202B /* SwipeEffectIcon.swift in Sources */,
-				CF884DB82C7C238100AB9163 /* CloseButton.swift in Sources */,
+				CF884DB82C7C238100AB9163 /* ToolbarButton.swift in Sources */,
 				CF884DA92C7BA3E700AB9163 /* ConnectSpotifyView.swift in Sources */,
 				CFA91DA22C74F1C300D1202B /* TrackCardView.swift in Sources */,
 				CFA91D942C74F0E500D1202B /* Spotify_MatchApp.swift in Sources */,
 				CF884D972C77CF5900AB9163 /* SpotifyController.swift in Sources */,
+				CF884DD12C7E23F600AB9163 /* SpinningIcon.swift in Sources */,
+				CF884DCB2C7D814200AB9163 /* PlaylistPlaceholder.swift in Sources */,
 				CF884DBE2C7CCB6E00AB9163 /* PlaylistListRowView.swift in Sources */,
 				CF884DB42C7BC43700AB9163 /* SpotifyData.swift in Sources */,
 				CF884DB22C7BC0EB00AB9163 /* HelpView.swift in Sources */,
-				CFA91DC12C76CB2700D1202B /* HeaderView.swift in Sources */,
-				CF884DA22C7A8C8F00AB9163 /* PlaylistSelectionView.swift in Sources */,
+				CF884DC62C7D436400AB9163 /* TextModifiers.swift in Sources */,
 				CFA91DB02C75156100D1202B /* Song.swift in Sources */,
 				CFA91DB32C75171D00D1202B /* CardDeckViewModel.swift in Sources */,
 				CF884DBB2C7CC15700AB9163 /* PlaylistListView.swift in Sources */,
-				CF884DA52C7A91F000AB9163 /* SPGroupBoxStyle.swift in Sources */,
-				CF884DAF2C7BBBAC00AB9163 /* ViewSize.swift in Sources */,
-				CF884DB62C7BFABA00AB9163 /* EmptyPlaylistSelectionView.swift in Sources */,
+				CF884DB62C7BFABA00AB9163 /* EmptyCardView.swift in Sources */,
 				CF884DC02C7CF7D500AB9163 /* TrackCardViewModel.swift in Sources */,
 				CFA91DA62C75055500D1202B /* ImageColor.swift in Sources */,
 				CF884D9B2C79322400AB9163 /* APICalls.swift in Sources */,

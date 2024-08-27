@@ -1,5 +1,5 @@
 //
-//  CloseButton.swift
+//  ToolbarButton.swift
 //  Spotify Match
 //
 //  Created by coni garcia on 25/08/2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CloseButton: ViewModifier {
+struct ToolbarButton: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.title2)
@@ -17,7 +17,7 @@ struct CloseButton: ViewModifier {
 }
 
 extension View {
-    func closeButton() -> some View {
-        modifier(CloseButton())
+    func toolbarButton() -> some View {
+        modifier(ToolbarButton())
     }
 }

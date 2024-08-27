@@ -11,25 +11,61 @@ struct MainView: View {
     @Environment(SpotifyController.self) private var spotifyController
     @Environment(SpotifyData.self) private var spotifyData
     
+    @State var showingConfiguration = false
+    @State var showingHelp = false
+    
     var body: some View {
-        ZStack {
-            AppBackgroundView()
-            VStack {
-                HeaderView()
-                Spacer()
+        NavigationStack {
+            ZStack {
+                AppBackgroundView()
+                
                 if !spotifyController.connected {
                     ConnectSpotifyView()
                 } else {
-                    if spotifyData.incomplete {
-                        EmptyPlaylistSelectionView()
-                    } else {
-                        CardDeckView()
+                    VStack {
+                        Spacer()
+                        
+                        if spotifyData.originPlaylist == nil {
+                            EmptyCardView(text: "Select origin playlist.")
+                        } else if spotifyData.destinationPlaylist == nil {
+                            EmptyCardView(text: "Select destination playlist.")
+                        } else {
+                            CardDeckView()
+                        }
+                        
+                        Spacer()
+                        Spacer()
+                            .frame(height: 110)
+                    }
+                    
+                    PlaylistSelectionView()
+                }
+                
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingConfiguration.toggle()
+                    } label: {
+                        Image(systemName: "gearshape.circle.fill")
+                            .toolbarButton()
                     }
                 }
-                Spacer()
-                Spacer()
-                    .frame(height: 40)
-                    .padding()
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showingHelp.toggle()
+                    } label: {
+                        Image(systemName: "questionmark.circle.fill")
+                            .toolbarButton()
+                    }
+                }
+            }
+            .fullScreenCover(isPresented: $showingConfiguration) {
+                ConfigurationView()
+            }
+            .fullScreenCover(isPresented: $showingHelp) {
+                HelpView()
             }
         }
     }

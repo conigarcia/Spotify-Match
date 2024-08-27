@@ -12,18 +12,23 @@ struct ConnectSpotifyView: View {
 
     var body: some View {
         VStack {
-            Text("Connect to your Spotify account.")
-                .fontWeight(.semibold)
-                .foregroundStyle(.spotifyGreen)
+            VStack(spacing: 10) {
+                Text("Welcome!")
+                    .titleText()
+                    .foregroundStyle(.spotifyGreen)
+                Text("Connect your Spotify account to start.")
+                    .regularText()
+            }
             
             Button {
                 if !spotifyController.appRemote.isConnected {
                     spotifyController.connect()
                 }
             } label: {
-                Capsule()
+                Rectangle()
                     .frame(width: 250, height: 80)
                     .foregroundStyle(Color(.spotifyGreen))
+                    .clipShape(.rect(cornerRadius: 20))
                     .overlay {
                         Image("logo_black")
                             .resizable()

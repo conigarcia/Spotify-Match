@@ -18,7 +18,7 @@ struct PlaylistCardView: View {
                 image
                     .resizable()
             } placeholder: {
-                EmptyView()
+                PlaylistPlaceholder()
             }
             .frame(width: size, height: size)
             
@@ -26,7 +26,7 @@ struct PlaylistCardView: View {
                 Text(playlist?.name ?? "")
                     .font(.subheadline)
                     .fontWeight(.bold)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color(.label))
                     .lineLimit(1)
                     .multilineTextAlignment(.leading)
                 
@@ -35,7 +35,6 @@ struct PlaylistCardView: View {
             .frame(width: size)
             .padding(.vertical, 1)
         }
-        .backgroundStyle(Color(.separator))
     }
 }
 
