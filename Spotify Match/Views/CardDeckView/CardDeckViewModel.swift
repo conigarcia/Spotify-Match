@@ -17,6 +17,11 @@ final class CardDeckViewModel {
     private var topCard: TrackCardView?
     
     func setup(spotifyController: SpotifyController, spotifyData: SpotifyData) async {
+        deck = []
+        topCardOffset = .zero
+        tracks = []
+        nextTrack = 1
+        topCard = nil
         await getTracks(spotifyController: spotifyController, spotifyData: spotifyData)
         createDeck()
         getTopCard()
@@ -55,7 +60,7 @@ final class CardDeckViewModel {
     }
     
     func isTopCard(card: TrackCardView) -> Bool {
-        return card.id == topCard!.id
+        return card.id == topCard?.id
     }
     
     func nextCard() {

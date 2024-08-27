@@ -86,6 +86,7 @@ struct CardDeckView: View {
             }
         }
         .task {
+            print("initial setup")
             await viewModel.setup(spotifyController: spotifyController, spotifyData: spotifyData)
         }
     }
