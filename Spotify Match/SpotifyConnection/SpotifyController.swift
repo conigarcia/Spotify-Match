@@ -59,7 +59,7 @@ import Combine
 
     func connect() {
         guard let _ = self.appRemote.connectionParameters.accessToken else {
-            self.appRemote.authorizeAndPlayURI("")
+            self.appRemote.authorizeAndPlayURI("", asRadio: false, additionalScopes: ["playlist-read-private", "playlist-read-collaborative", "user-library-read"])
             appRemote.connect()
             return
         }
