@@ -72,8 +72,8 @@ struct MainView: View {
 }
 
 #Preview {
-    @State var spotifyController = SpotifyController()
-    @State var spotifyData = SpotifyData()
+    @Previewable @State var spotifyController = SpotifyController()
+    @Previewable @State var spotifyData = SpotifyData()
     return MainView()
         .environment(spotifyController)
         .environment(spotifyData)

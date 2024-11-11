@@ -66,8 +66,8 @@ struct PlaylistListView: View {
 }
 
 #Preview {
-    @State var spotifyController = SpotifyController()
-    @State var spotifyData = SpotifyData()
+    @Previewable @State var spotifyController = SpotifyController()
+    @Previewable @State var spotifyData = SpotifyData()
     return NavigationStack {
         PlaylistListView(title: "Origin playlist", playlist: $spotifyData.originPlaylist)
     }

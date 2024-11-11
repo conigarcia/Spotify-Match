@@ -116,7 +116,7 @@ struct PlaylistSelectionView: View {
 }
 
 #Preview {
-    @State var spotifyData = SpotifyData()
+    @Previewable @State var spotifyData = SpotifyData()
     return PlaylistSelectionView()
         .environment(spotifyData)
 }

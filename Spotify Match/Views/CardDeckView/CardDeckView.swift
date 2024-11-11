@@ -93,8 +93,8 @@ struct CardDeckView: View {
 }
 
 #Preview {
-    @State var spotifyController = SpotifyController()
-    @State var spotifyData = SpotifyData()
+    @Previewable @State var spotifyController = SpotifyController()
+    @Previewable @State var spotifyData = SpotifyData()
     spotifyData.originPlaylist = Playlist(id: "", images: [], name: "pop of english")
     return CardDeckView()
         .environment(spotifyController)

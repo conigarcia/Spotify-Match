@@ -42,7 +42,7 @@ struct ConnectSpotifyView: View {
 }
 
 #Preview {
-    @State var spotifyController = SpotifyController()
+    @Previewable @State var spotifyController = SpotifyController()
     return ZStack {
         AppBackgroundView()
         ConnectSpotifyView()
