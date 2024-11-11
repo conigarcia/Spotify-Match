@@ -17,7 +17,7 @@ struct HelpView: View {
                     .titleText()
                     .foregroundStyle(Color(.spotifyGreen))
                 
-                Text("Select origin and destination playlists.")
+                Text("Select source and destination playlists.")
                     .regularText()
                 
                 HStack(spacing: 15) {
@@ -30,7 +30,7 @@ struct HelpView: View {
                     DemoPlaylistView(image: "liked songs", title: "Liked Songs")
                 }
                 
-                Text("For each track of the origin playlist, decide whether or not you want to add it to the destination one.")
+                Text("For each track of the source playlist, decide whether or not you want to add it to the destination one.")
                     .regularText()
                     .padding(.horizontal, 20)
                 
@@ -61,7 +61,7 @@ struct HelpView: View {
                         
                         Divider()
                         
-                        Text("Swipe left to dismiss the track without adding it to the destination playlist. Don't worry, it will remain in the origin playlist.")
+                        Text("Swipe left to dismiss the track without adding it to the destination playlist. Don't worry, it will remain in the source playlist.")
                             .modifier(HelpDescription())
                             .multilineTextAlignment(.trailing)
                     }

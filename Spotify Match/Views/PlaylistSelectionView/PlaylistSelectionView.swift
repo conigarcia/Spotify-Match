@@ -10,7 +10,7 @@ import SwiftUI
 struct PlaylistSelectionView: View {
     @Environment(SpotifyData.self) private var spotifyData
     
-    var originUrl: String { spotifyData.originPlaylist?.images.first?.url ?? "" }
+    var sourceUrl: String { spotifyData.sourcePlaylist?.images.first?.url ?? "" }
     var destinationUrl: String { spotifyData.destinationPlaylist?.images.first?.url ?? "" }
     
     @State var expanded = false
@@ -43,9 +43,9 @@ struct PlaylistSelectionView: View {
                         
                         VStack(spacing: 25) {
                             NavigationLink {
-                                PlaylistListView(title: "Origin playlist", playlist: $spotifyData.originPlaylist)
+                                PlaylistListView(title: "Source playlist", playlist: $spotifyData.sourcePlaylist)
                             } label: {
-                                PlaylistCardView(playlist: spotifyData.originPlaylist)
+                                PlaylistCardView(playlist: spotifyData.sourcePlaylist)
                             }
 
                             SpinningIcon(icon: "arrow.down")
@@ -80,7 +80,7 @@ struct PlaylistSelectionView: View {
                         
                         HStack(spacing: 25) {
                             GroupBox {
-                                AsyncImage(url: URL(string: originUrl)) { image in
+                                AsyncImage(url: URL(string: sourceUrl)) { image in
                                     image
                                         .resizable()
                                 } placeholder: {

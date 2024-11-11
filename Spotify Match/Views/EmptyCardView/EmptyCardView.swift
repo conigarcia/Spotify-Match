@@ -50,5 +50,5 @@ struct EmptyCardView: View {
 }
 
 #Preview {
-    EmptyCardView(text: "No origin playlist selected.")
+    EmptyCardView(text: "No source playlist selected.")
 }

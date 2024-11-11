@@ -19,7 +19,7 @@ struct CardDeckView: View {
     var body: some View {
         VStack {
             if viewModel.deck.isEmpty {
-                EmptyCardView(text: "The selected origin playlist has no tracks.")
+                EmptyCardView(text: "The selected source playlist has no tracks.")
             } else {
                 ZStack {
                     if viewModel.topCardOffset.width > 150 {
@@ -95,7 +95,7 @@ struct CardDeckView: View {
 #Preview {
     @Previewable @State var spotifyController = SpotifyController()
     @Previewable @State var spotifyData = SpotifyData()
-    spotifyData.originPlaylist = Playlist(id: "", images: [], name: "pop of english")
+    spotifyData.sourcePlaylist = Playlist(id: "", images: [], name: "pop of english")
     return CardDeckView()
         .environment(spotifyController)
         .environment(spotifyData)

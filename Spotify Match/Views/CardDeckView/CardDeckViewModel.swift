@@ -31,7 +31,7 @@ final class CardDeckViewModel {
         do {
             let playlistTracks = try await getPlaylistTracks(
                 spotifyController: spotifyController,
-                playlistId: spotifyData.originPlaylist?.id ?? ""
+                playlistId: spotifyData.sourcePlaylist?.id ?? ""
             )
             
             tracks = playlistTracks.items.map { $0.track }

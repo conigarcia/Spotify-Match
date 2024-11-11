@@ -25,8 +25,8 @@ struct MainView: View {
                     VStack {
                         Spacer()
                         
-                        if spotifyData.originPlaylist == nil {
-                            EmptyCardView(text: "Select origin playlist.")
+                        if spotifyData.sourcePlaylist == nil {
+                            EmptyCardView(text: "Select source playlist.")
                         } else if spotifyData.destinationPlaylist == nil {
                             EmptyCardView(text: "Select destination playlist.")
                         } else {
